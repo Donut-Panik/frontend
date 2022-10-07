@@ -1,6 +1,6 @@
 import { FC, memo, useCallback, useState } from 'react'
 
-import { InputField, Page } from 'ui/components'
+import { Button, InputField, Page } from 'ui/components'
 import { styled } from 'ui/styles'
 
 import logo from 'ui/images/logo.png'
@@ -16,15 +16,21 @@ const FormWrapper = styled.div`
   justify-content: center;
   flex-direction: column;
   gap: 32px;
-  width: 100%;
   height: 100%;
 `
 
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-  width: 260px;
+  align-items: center;
+  width: 360px;
   gap: 8px;
+`
+
+const StyledButton = styled(Button)`
+  width: 100%;
+  max-width: 230px;
+  margin-top: 32px;
 `
 
 const _Login: FC = () => {
@@ -34,14 +40,17 @@ const _Login: FC = () => {
   const onLoginChange = useCallback((text: string) => setLoginField(text), [])
   const onPassChange = useCallback((text: string) => setPassField(text), [])
 
+  const onSubmit = () => {}
+
   return (
     <Page>
       <Wrapper>
         <FormWrapper>
           <img src={logo} alt="vtb" width={100} />
-          <Form>
-            <InputField onChange={onLoginChange} placeholder="Логин" value={loginField} label="Логин" />
-            <InputField onChange={onPassChange} placeholder="Пароль" value={passField} label="Пароль" />
+          <Form onSubmit={onSubmit}>
+            <InputField onChange={onLoginChange} placeholder="vasya_pupkin" value={loginField} label="Логин" />
+            <InputField onChange={onPassChange} value={passField} label="Пароль" type="password" />
+            <StyledButton type="submit">Войти</StyledButton>
           </Form>
         </FormWrapper>
       </Wrapper>
