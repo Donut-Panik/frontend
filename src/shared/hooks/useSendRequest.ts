@@ -14,11 +14,11 @@ export const useSendRequest = (cb: () => void, endpoint: string) => {
     mutate: sendRequest,
     isError,
     isSuccess
-  } = useMutation<AxiosResponse<any> | undefined, AxiosError>(
+  } = useMutation<AxiosResponse<any> | undefined, AxiosError, any>(
     async <T>(data: T) => {
       setQueryResult(null)
 
-      return await HttpService.createApplication(data, endpoint)
+      return await HttpService.post(data, endpoint)
     },
     {
       onSuccess: (res) => {

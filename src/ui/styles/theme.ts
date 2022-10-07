@@ -8,10 +8,11 @@ export const theme = {
     green: '#d6e08d',
     red: '#e62632',
     orange: '#ea6b50',
+    gray: '#D4D7DF',
     yellow: '#f1cc56'
   },
   fontFamily: {
-    montserrat: 'Montserrat'
+    roboto: 'Roboto'
   },
   transition: {
     hover: 200,

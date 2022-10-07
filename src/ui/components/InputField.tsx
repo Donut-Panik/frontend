@@ -9,8 +9,7 @@ const Wrapper = styled.div`
 `
 
 const StyledText = styled(Text)`
-  margin-right: 32px;
-  width: 120px;
+  width: 180px;
 `
 
 const Input = styled.input<{ isValid: boolean; isNotEmpty: boolean }>`
@@ -31,7 +30,8 @@ const Input = styled.input<{ isValid: boolean; isNotEmpty: boolean }>`
   transition-duration: ${theme.transition.hover}ms;
 
   &::placeholder {
-    color: #c3c3c3;
+    ${getStyles('t8')}
+    color: ${theme.palette.gray};
   }
 
   @media (hover: hover) {

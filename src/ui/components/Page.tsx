@@ -10,7 +10,7 @@ const Content = styled.main`
   align-items: center;
   flex: 1 0;
 
-  height: 100vh;
+  height: 100%;
   max-width: ${breakpoints.tablet}px;
   width: 100%;
 

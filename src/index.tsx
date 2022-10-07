@@ -1,11 +1,11 @@
-import { createRoot } from 'react-dom/client';
-import 'reset-css';
+import { createRoot } from 'react-dom/client'
+import { QueryClient, QueryClientProvider } from 'react-query'
+import 'reset-css'
 
-import { QueryClient, QueryClientProvider } from 'react-query';
 import { GlobalStyles, theme, ThemeProvider } from 'ui/styles'
-import { App } from 'App';
+import { App } from 'App'
 
-const root = createRoot(document.getElementById('root') as HTMLElement);
+const root = createRoot(document.getElementById('root') as HTMLElement)
 
 const queryClient = new QueryClient()
 
@@ -15,4 +15,5 @@ root.render(
       <GlobalStyles />
       <App />
     </ThemeProvider>
-  </QueryClientProvider>);
+  </QueryClientProvider>
+)

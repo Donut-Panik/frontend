@@ -1,4 +1,12 @@
 import React, { PropsWithChildren } from 'react'
+import { styled } from 'ui/styles'
+
+const ResetButton = styled.button`
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+  cursor: pointer;
+`
 
 export type ButtonProps = {
   className?: string
@@ -22,9 +30,9 @@ export const Button: React.FC<PropsWithChildren<ButtonProps>> = ({
     )
   } else {
     return (
-      <button type={type} className={className} onClick={onClick} onMouseDown={(ev) => ev.preventDefault()}>
+      <ResetButton type={type} className={className} onClick={onClick} onMouseDown={(ev) => ev.preventDefault()}>
         {children}
-      </button>
+      </ResetButton>
     )
   }
 }

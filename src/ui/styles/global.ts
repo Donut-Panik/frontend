@@ -26,7 +26,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    font-family: ${theme.fontFamily.montserrat}, sans-serif;
+    font-family: ${theme.fontFamily.roboto}, sans-serif;
     color: ${theme.palette.black};
     background-color: ${theme.palette.white};
 
@@ -44,6 +44,7 @@ export const GlobalStyles = createGlobalStyle`
     flex-direction: column;
     align-items: center;
     position: relative;
+    height: 100vh;
   }
 
   .blur {
