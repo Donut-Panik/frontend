@@ -1,6 +1,7 @@
 import { PropsWithChildren } from 'react'
 import { breakpoints } from 'shared/dimensions'
 import { styled } from 'ui/styles'
+import { Navbar } from './Navbar'
 
 const Content = styled.main`
   position: relative;
@@ -20,7 +21,7 @@ const Content = styled.main`
 
 export const Page: React.FC<PropsWithChildren> = ({ children }) => (
   <>
-    <div id="appbar"></div>
+    <Navbar />
     <Content>{children}</Content>
     <div id="footer"></div>
   </>

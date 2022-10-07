@@ -9,12 +9,14 @@ const Wrapper = styled.div`
   height: 100vh;
 `
 
-const _Home: FC = () => {
+const _Store: FC = () => {
   return (
     <Page>
-      
+      <Wrapper>
+        <Navbar/>
+      </Wrapper>
     </Page>
   )
 }
 
-export const Home = memo(_Home);
+export const Store = memo(_Store);
