@@ -72,21 +72,9 @@
 }
 @font-face {
   font-family: 'Roboto';
-  src: url('../fonts/Roboto-SemiBold.ttf') format('truetype');
-  font-display: swap;
-  font-weight: 600;
-}
-@font-face {
-  font-family: 'Roboto';
   src: url('../fonts/Roboto-Bold.ttf') format('truetype');
   font-display: swap;
   font-weight: 700;
-}
-@font-face {
-  font-family: 'Roboto';
-  src: url('../fonts/Roboto-ExtraBold.ttf') format('truetype');
-  font-display: swap;
-  font-weight: 800;
 }
 @font-face {
   font-family: 'Roboto';
