@@ -13,7 +13,7 @@ const _Store: FC = () => {
   return (
     <Page>
       <Wrapper>
-        <Navbar/>
+        
       </Wrapper>
     </Page>
   )
