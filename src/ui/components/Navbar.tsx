@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom'
 import { Text } from './Text'
 
 import logo from 'ui/images/logo2.png'
+import { css } from 'styled-components'
 
 const StyledText = styled(Text)`
   margin-right: 32px;
@@ -44,6 +45,13 @@ const Element = styled(NavLink)<{ active: boolean }>`
   :hover {
     border-bottom: 3px solid ${theme.palette.white};
   }
+  ${({ active }) =>
+    active &&
+    css`
+      &::after {
+        content: '';
+      }
+    `}
 `
 
 const Logo = styled.img`
@@ -58,11 +66,21 @@ export const Navbar: FC = () => {
     <NavbarContainer>
       <Logo src={logo} alt="vtb" width={120} />
       <Container>
-        <Element to={paths.login} active={true}>Лента активности</Element>
-        <Element to={paths.store} active={false}>Mагазин</Element>
-        <Element to={paths.store} active={false}>Развитие</Element>
-        <Element to={paths.store} active={false}>Топ-лист</Element>
-        <Element to={paths.login} active={false}>Профиль</Element>
+        <Element to={paths.login} active={true}>
+          Лента активности
+        </Element>
+        <Element to={paths.store} active={false}>
+          Mагазин
+        </Element>
+        <Element to={paths.store} active={false}>
+          Развитие
+        </Element>
+        <Element to={paths.store} active={false}>
+          Топ-лист
+        </Element>
+        <Element to={paths.login} active={false}>
+          Профиль
+        </Element>
       </Container>
     </NavbarContainer>
   )
