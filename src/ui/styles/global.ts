@@ -27,8 +27,8 @@ export const GlobalStyles = createGlobalStyle`
 
   body {
     font-family: ${theme.fontFamily.montserrat}, sans-serif;
-    color: ${theme.palette.white};
-    background-color: ${theme.palette.black};
+    color: ${theme.palette.black};
+    background-color: ${theme.palette.white};
 
     overflow: hidden;
     overflow-y: auto;
