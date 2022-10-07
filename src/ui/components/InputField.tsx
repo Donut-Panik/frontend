@@ -5,6 +5,12 @@ import { Text } from './Text'
 
 const Wrapper = styled.div`
   display: flex;
+  align-items: center;
+`
+
+const StyledText = styled(Text)`
+  margin-right: 32px;
+  width: 120px;
 `
 
 const Input = styled.input<{ isValid: boolean; isNotEmpty: boolean }>`
@@ -25,7 +31,7 @@ const Input = styled.input<{ isValid: boolean; isNotEmpty: boolean }>`
   transition-duration: ${theme.transition.hover}ms;
 
   &::placeholder {
-    color: ${theme.palette.black};
+    color: #c3c3c3;
   }
 
   @media (hover: hover) {
@@ -59,20 +65,22 @@ type InputProps = {
   label?: string
   isValid?: boolean
   placeholder?: string
+  type?: 'text' | 'password' | 'phone'
   onChange: (text: string) => void
 }
 
-const _InputField: FC<InputProps> = ({ value, label, isValid, placeholder, onChange }) => {
+const _InputField: FC<InputProps> = ({ value, label, isValid, placeholder, onChange, type = 'text' }) => {
   const isNotEmpty = Boolean(value)
 
   return (
     <Wrapper>
-      {label && <Text variant="t4">{label}</Text>}
+      {label && <StyledText variant="t4">{label}</StyledText>}
       <Input
         onChange={(e) => onChange(e.target.value)}
         isValid={!!isValid}
         placeholder={placeholder}
         isNotEmpty={isNotEmpty}
+        type={type}
       />
     </Wrapper>
   )
