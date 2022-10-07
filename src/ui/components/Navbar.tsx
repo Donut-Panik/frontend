@@ -1,19 +1,12 @@
 import { FC } from 'react'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 import { styled, theme } from 'ui/styles'
-import { RootRouter } from 'routes/routes'
+
 import { paths } from 'constant/pages'
-import { Link } from 'react-router-dom'
-import { Text } from './Text'
 
 import logo from 'ui/images/logo2.png'
 import { css } from 'styled-components'
-
-const StyledText = styled(Text)`
-  margin-right: 32px;
-  width: 120px;
-`
 
 const NavbarContainer = styled.div`
   position: sticky;
@@ -25,9 +18,9 @@ const NavbarContainer = styled.div`
   background-color: ${theme.palette.blue};
 `
 const Container = styled.div`
-  width: 788px;
-  margin-top: 14px;
-  margin-bottom: 14px;
+  margin-top: 18px;
+  margin-bottom: 12px;
+  gap: 50px;
 
   display: flex;
   justify-content: space-between;
@@ -54,9 +47,26 @@ const Element = styled(NavLink)<{ active: boolean }>`
     `}
 `
 
+const Profil = styled(NavLink)<{ active: boolean }>`
+  width: 120px;
+  margin-top: 18px;
+  margin-bottom: 12px;
+  color: ${theme.palette.white};
+  font-family: 'Roboto';
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s linear;
+  border-bottom: ${({ active }) => (active ? `3px solid ${theme.palette.white}` : '')};
+  :hover {
+    border-bottom: 3px solid ${theme.palette.white};
+  }
+`
+
 const Logo = styled.img`
   margin-top: 5px;
   margin-bottom: 5px;
+  width: 120px;
 `
 
 export const Navbar: FC = () => {
@@ -78,10 +88,10 @@ export const Navbar: FC = () => {
         <Element to={paths.store} active={false}>
           Топ-лист
         </Element>
-        <Element to={paths.login} active={false}>
-          Профиль
-        </Element>
       </Container>
+      <Profil to={paths.login} active={false}>
+        Профиль
+      </Profil>
     </NavbarContainer>
   )
 }
