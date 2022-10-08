@@ -7,7 +7,6 @@ import { paths } from 'constant/pages'
 import { Text } from './Text'
 
 import logo from 'ui/images/logo2.png'
-import { css } from 'styled-components'
 
 const NavbarContainer = styled.div`
   display: flex;
@@ -99,7 +98,7 @@ export const Navbar: FC = () => {
           </Element>
         ))}
       </Container>
-      <Profile to={paths.login}>
+      <Profile to={paths.profile}>
         <Text variant="t5">Профиль</Text>
       </Profile>
     </NavbarContainer>

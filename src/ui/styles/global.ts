@@ -10,7 +10,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: ${theme.palette.black};
+    background-color: ${theme.palette.blue};
     border-radius: 8px;
   }
  
