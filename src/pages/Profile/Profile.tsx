@@ -12,6 +12,7 @@ import { paths } from 'constant'
 import { ProfileHistory } from './components/History/History'
 import { ProfileTrade } from './components/ProfileTrade/ProfileTrade'
 import { ProfileTasks } from './components/Tasks/Tasks'
+import { ProfileActivities } from './components/Activities/Activities'
 
 import doge from 'ui/images/doge.png'
 import { ProfileAvatar } from './components/ProfileAvatar'
@@ -163,7 +164,7 @@ const items = [
   {
     label: 'Активности',
     iconName: 'event',
-    component: <div />
+    component: <ProfileActivities />
   },
   {
     label: 'Обмен валют',
