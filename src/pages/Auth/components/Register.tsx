@@ -1,4 +1,4 @@
-import { FC, FormEvent, memo, useState } from 'react'
+import { FC, FormEvent, memo, useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import { useSendRequest } from 'shared/hooks/useSendRequest'
@@ -7,6 +7,7 @@ import { PrimaryButton } from 'ui/components/PrimaryButton'
 import { Text } from 'ui/components/Text'
 import { styled } from 'ui/styles'
 import { paths } from 'constant'
+import { AuthContext } from 'shared/context/context'
 
 const Form = styled.form`
   display: flex;
@@ -22,6 +23,7 @@ const StyledButton = styled(PrimaryButton)`
 `
 
 const _Register: FC = () => {
+  const authContext = useContext(AuthContext)
   const [nameField, setNameField] = useState('')
   const [surnameField, setSurnameField] = useState('')
   const [phoneField, setPhoneField] = useState('')
@@ -30,7 +32,8 @@ const _Register: FC = () => {
 
   const submitCallback = () => {
     if (isSuccess) {
-      navigate(paths.home)
+      authContext?.setIsAuth(true)
+      navigate(paths.challenges)
     }
   }
 

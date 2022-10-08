@@ -1,6 +1,9 @@
 import { PropsWithChildren } from 'react'
+import { useLocation } from 'react-router-dom'
+
 import { breakpoints } from 'shared/dimensions'
 import { styled } from 'ui/styles'
+import { paths } from 'constant'
 import { Navbar } from './Navbar'
 
 const Content = styled.main`
@@ -19,10 +22,13 @@ const Content = styled.main`
   }
 `
 
-export const Page: React.FC<PropsWithChildren> = ({ children }) => (
-  <>
-    <Navbar />
-    <Content>{children}</Content>
-    <div id="footer"></div>
-  </>
-)
+export const Page: React.FC<PropsWithChildren> = ({ children }) => {
+  const location = useLocation()
+  return (
+    <>
+      {location.pathname !== paths.login && <Navbar />}
+      <Content>{children}</Content>
+      <div id="footer"></div>
+    </>
+  )
+}

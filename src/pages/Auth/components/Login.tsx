@@ -1,6 +1,7 @@
 import { paths } from 'constant'
-import { FC, FormEvent, memo, useCallback, useState } from 'react'
+import { FC, FormEvent, memo, useCallback, useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { AuthContext } from 'shared/context/context'
 import { useSendRequest } from 'shared/hooks/useSendRequest'
 
 import { InputField, Loader } from 'ui/components'
@@ -22,6 +23,8 @@ const StyledButton = styled(PrimaryButton)`
 `
 
 const _Login: FC = () => {
+  const authContext = useContext(AuthContext)
+
   const [loginField, setLoginField] = useState('')
   const [passField, setPassField] = useState('')
   const navigate = useNavigate()
@@ -31,7 +34,8 @@ const _Login: FC = () => {
 
   const submitCallback = () => {
     if (isSuccess) {
-      navigate(paths.home)
+      authContext?.setIsAuth(true)
+      navigate(paths.challenges)
     }
   }
 
