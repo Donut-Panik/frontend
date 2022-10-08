@@ -6,6 +6,7 @@ import { Text } from 'ui/components/Text'
 import { styled, theme } from 'ui/styles'
 import { ProfileHistory } from './components/History/History'
 import { ProfileTrade } from './components/ProfileTrade/ProfileTrade'
+import { ProfileTasks } from './components/Tasks/Tasks'
 
 import header from 'ui/images/header.png'
 import { useNavigate } from 'react-router-dom'
@@ -154,7 +155,7 @@ const items = [
   {
     label: 'Мои задачи',
     iconName: 'data',
-    component: <div />
+    component: <ProfileTasks />
   },
   {
     label: 'Активности',

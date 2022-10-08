@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import { Page, LogoRating } from 'ui/components'
+import { Page } from 'ui/components'
 import { styled, theme } from 'ui/styles'
 import { Text } from 'ui/components/Text'
 import { Image } from 'ui/components/Image'
