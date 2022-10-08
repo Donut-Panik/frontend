@@ -13,6 +13,7 @@ import { RatingList } from './components/RatingList'
 
 const Wrapper = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   width: 100%;
   height: 100%;

@@ -11,8 +11,9 @@ const Header = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-left: 100px;
+    margin-left: 10px;
     margin-top: 15px;
+    margin-right: 20px;
 `
 
 const Check = styled.span`
