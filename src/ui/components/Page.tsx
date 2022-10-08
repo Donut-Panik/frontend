@@ -2,8 +2,8 @@ import { PropsWithChildren } from 'react'
 import { useLocation } from 'react-router-dom'
 
 import { breakpoints } from 'shared/dimensions'
-import { styled } from 'ui/styles'
 import { paths } from 'constant'
+import { styled, theme } from 'ui/styles'
 import { Navbar } from './Navbar'
 
 const Content = styled.main`
@@ -20,6 +20,8 @@ const Content = styled.main`
   @media (max-width: ${breakpoints.tablet}px) {
     max-width: 100%;
   }
+
+  background-color: ${theme.palette.main};
 `
 
 export const Page: React.FC<PropsWithChildren> = ({ children }) => {

@@ -7,6 +7,7 @@ const Wrapper = styled.div`
   width: 100%;
 `
 
+
 const _Store: FC = () => {
   return (
     <Page>

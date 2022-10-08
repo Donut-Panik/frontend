@@ -12,7 +12,13 @@ export const theme = {
     gray: '#D4D7DF',
     grayLight: '#F3F7FA',
     grayDark: '#595D67',
-    yellow: '#f1cc56'
+    yellow: '#f1cc56',
+    sub_main: '#00AAFF',
+    off_sub_main: '#B6C1DD',
+    main: '#F3F7FA',
+    main_text: '#2F3441',
+    sub_text: '#595D67',
+    sub_sub_text: '#82858D'
   },
   fontFamily: {
     roboto: 'Roboto'
