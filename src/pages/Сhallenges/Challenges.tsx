@@ -1,6 +1,6 @@
-import { FC, memo, useState } from 'react'
+import { FC, memo, useContext, useEffect, useState } from 'react'
 
-import { Button, Page } from 'ui/components'
+import { Button, Loader, Page } from 'ui/components'
 import { Text } from 'ui/components/Text'
 import { styled, theme } from 'ui/styles'
 
@@ -13,6 +13,8 @@ import { ReactComponent as Info } from 'ui/icons/info.svg'
 import { ReactComponent as Marker } from 'ui/icons/marker.svg'
 
 import ellipse from 'ui/images/ellipse.png'
+import { useGetRequest } from 'shared/hooks/useGetRequest'
+import { AuthContext } from 'shared/context/context'
 
 const Wrapper = styled.div`
   display: flex;
@@ -72,6 +74,7 @@ const SwitcherWrapper = styled.div`
 `
 const Choose = styled(Text)<{ isActive: boolean }>`
   color: ${({ isActive }) => (isActive ? `${theme.palette.blue}` : `${theme.palette.blueGray}`)};
+  transition: color ${theme.transition.blink}ms;
 `
 
 const Switcher = styled(Marker)<{ isActive: boolean }>`
@@ -92,6 +95,7 @@ const Ellipse = styled.img`
 `
 
 const _Challenges: FC = () => {
+  const { setNewUser } = useContext(AuthContext)
   const [isDaily, setIsDaily] = useState(true)
   const [modalOpen, setModalOpen] = useState(false)
 
@@ -103,61 +107,76 @@ const _Challenges: FC = () => {
     setModalOpen(isOpen)
   }
 
+  const onLoadProfile = (data: any) => {
+    setNewUser(data)
+    console.log(data)
+  }
+
+  const { mutate, isLoading } = useGetRequest(onLoadProfile, 'whoiam')
+
+  useEffect(() => {
+    mutate({})
+  }, [])
+
   return (
     <Page>
-      <Wrapper>
-        <Header>
-          <Tasks>
-            <StyledHeader variant="h3" color={theme.palette.blue}>
-              Задачи
-            </StyledHeader>
-            <StyledSprite />
-            <Information>
-              <StyledText variant="t0" color={theme.palette.blueGray}>
-                До получения NFT осталось 5 дней активной работы
-              </StyledText>
-              <InfoIcon onClick={() => isModalOpen(true)} />
-              <Modal isVisible={modalOpen} onOverlayClick={() => isModalOpen(false)}>
-                <ModalInfo isVisible={setModalOpen} />
-              </Modal>
-            </Information>
-          </Tasks>
-        </Header>
-        <Content>
-          <ChallengeCard
-            label="Завершить курс"
-            price={70}
-            onPlayClick={() => {}}
-            info="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla "
-          />
-          <ChallengeCard
-            label="Принять участие в игре"
-            price={20}
-            onPlayClick={() => {}}
-            info="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla "
-          />
-          <ChallengeCard
-            label="Создать команду в забеге"
-            price={40}
-            onPlayClick={() => {}}
-            info="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla "
-          />
-        </Content>
-        <SwitcherWrapper>
-          <Button onClick={onSwitcherClick}>
-            <Choose isActive={isDaily} variant="h8">
-              Ежедневные
-            </Choose>
-          </Button>
-          <Switcher isActive={isDaily} />
-          <Button onClick={onSwitcherClick}>
-            <Choose isActive={!isDaily} variant="h8">
-              Еженедельные
-            </Choose>
-          </Button>
-        </SwitcherWrapper>
-        <Ellipse src={ellipse} />
-      </Wrapper>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <Wrapper>
+          <Header>
+            <Tasks>
+              <StyledHeader variant="h3" color={theme.palette.blue}>
+                Задачи
+              </StyledHeader>
+              <StyledSprite />
+              <Information>
+                <StyledText variant="t0" color={theme.palette.blueGray}>
+                  До получения NFT осталось 5 дней активной работы
+                </StyledText>
+                <InfoIcon onClick={() => isModalOpen(true)} />
+                <Modal isVisible={modalOpen} onOverlayClick={() => isModalOpen(false)}>
+                  <ModalInfo isVisible={setModalOpen} />
+                </Modal>
+              </Information>
+            </Tasks>
+          </Header>
+          <Content>
+            <ChallengeCard
+              label="Завершить курс"
+              price={70}
+              onPlayClick={() => {}}
+              info="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla "
+            />
+            <ChallengeCard
+              label="Принять участие в игре"
+              price={20}
+              onPlayClick={() => {}}
+              info="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla "
+            />
+            <ChallengeCard
+              label="Создать команду в забеге"
+              price={40}
+              onPlayClick={() => {}}
+              info="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla "
+            />
+          </Content>
+          <SwitcherWrapper>
+            <Button onClick={onSwitcherClick}>
+              <Choose isActive={isDaily} variant="h8">
+                Ежедневные
+              </Choose>
+            </Button>
+            <Switcher isActive={isDaily} />
+            <Button onClick={onSwitcherClick}>
+              <Choose isActive={!isDaily} variant="h8">
+                Еженедельные
+              </Choose>
+            </Button>
+          </SwitcherWrapper>
+          <Ellipse src={ellipse} />
+        </Wrapper>
+      )}
     </Page>
   )
 }

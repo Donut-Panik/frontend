@@ -33,6 +33,10 @@ const Element = styled(NavLink)<{ active: boolean }>`
   text-decoration: none;
   transition: color 0.2s linear;
 
+  &:hover {
+    color: ${theme.palette.lightBlue};
+  }
+
   ${({ active }) =>
     active &&
     css`
@@ -59,6 +63,10 @@ const Profile = styled(NavLink)`
   color: ${theme.palette.white};
   text-decoration: none;
   transition: color 0.2s linear;
+
+  &:hover {
+    color: ${theme.palette.lightBlue};
+  }
 `
 
 const Logo = styled.img`

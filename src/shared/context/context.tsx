@@ -1,16 +1,31 @@
 import { createContext, FC, PropsWithChildren, useCallback, useState } from 'react'
 
 type LogInContextProps = {
+  user: UserT | null
   isAuth: boolean
   token: string
   setIsAuth: (i: boolean) => void
   setAccessToken: (token: string) => void
   clearAll: () => void
+  setNewUser: (user: UserT) => void
+}
+
+type UserT = {
+  name: string
+  surname: string
+  phone: string
+  publicKey: string
+  privateKey: string
+  nickname: string
+  maticAmount: number
+  coinsAmount: number
+  balance: []
 }
 
 export const AuthContext = createContext<LogInContextProps>({} as LogInContextProps)
 
 export const LogInProvider: FC<PropsWithChildren> = ({ children }) => {
+  const [user, setUser] = useState<UserT | null>(null)
   const [isAuth, setIsAuth] = useState(false)
   const [token, setToken] = useState('')
 
@@ -27,9 +42,21 @@ export const LogInProvider: FC<PropsWithChildren> = ({ children }) => {
     window.localStorage.setItem('access_token', token)
   }
 
+  const setNewUser = useCallback((newUser: UserT) => {
+    setUser(newUser)
+  }, [])
+
   return (
     <AuthContext.Provider
-      value={{ isAuth, token, setIsAuth: setAuth, setAccessToken: setTokenAccess, clearAll: clearAll }}
+      value={{
+        user,
+        isAuth,
+        token,
+        setIsAuth: setAuth,
+        setAccessToken: setTokenAccess,
+        clearAll: clearAll,
+        setNewUser: setNewUser
+      }}
     >
       {children}
     </AuthContext.Provider>

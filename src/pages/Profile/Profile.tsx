@@ -1,17 +1,20 @@
 import { FC, memo, useContext, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import { Button, Page } from 'ui/components'
 import { Image } from 'ui/components/Image'
 import { Text } from 'ui/components/Text'
+import header from 'ui/images/header.png'
 import { styled, theme } from 'ui/styles'
+import { AuthContext } from 'shared/context/context'
+
+import { paths } from 'constant'
 import { ProfileHistory } from './components/History/History'
 import { ProfileTrade } from './components/ProfileTrade/ProfileTrade'
 import { ProfileTasks } from './components/Tasks/Tasks'
 
-import header from 'ui/images/header.png'
-import { useNavigate } from 'react-router-dom'
-import { paths } from 'constant'
-import { AuthContext } from 'shared/context/context'
+import doge from 'ui/images/doge.png'
+import { ProfileAvatar } from './components/ProfileAvatar'
 
 const Header = styled.img`
   width: 200%;
@@ -43,7 +46,7 @@ const ExitButton = styled(Button)``
 
 const SettingsButton = styled(Button)``
 
-const Avatar = styled.div`
+const Avatar = styled.img`
   position: absolute;
   margin-left: auto;
   margin-right: auto;
@@ -150,7 +153,7 @@ const items = [
   {
     label: 'Мой аватар',
     iconName: 'avatar',
-    component: <div />
+    component: <ProfileAvatar />
   },
   {
     label: 'Мои задачи',
@@ -194,7 +197,7 @@ const _Profile: FC = () => {
               <ExitButton onClick={onExitClick}>
                 <Image name="exit" width={40} />
               </ExitButton>
-              <Avatar />
+              <Avatar src={doge} />
               <SettingsButton>
                 <Image name="settings" width={40} />
               </SettingsButton>

@@ -33,7 +33,7 @@ const _Register: FC = () => {
   const submitCallback = () => {
     if (isSuccess) {
       authContext?.setIsAuth(true)
-      navigate(paths.challenges)
+      navigate(paths.home)
     }
   }
 
