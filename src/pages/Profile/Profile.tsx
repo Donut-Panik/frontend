@@ -5,6 +5,7 @@ import { Image } from 'ui/components/Image'
 import { Text } from 'ui/components/Text'
 import { styled, theme } from 'ui/styles'
 import { ProfileHistory } from './components/History/History'
+import { ProfileTrade } from './components/ProfileTrade/ProfileTrade'
 
 const Header = styled.div`
   width: 200%;
@@ -158,7 +159,7 @@ const items = [
   {
     label: 'Обмен валют',
     iconName: 'currency',
-    component: <div />
+    component: <ProfileTrade />
   },
   {
     label: 'История',
