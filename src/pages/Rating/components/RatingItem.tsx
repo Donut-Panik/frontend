@@ -1,7 +1,6 @@
 import { styled, theme } from 'ui/styles'
 
 import line from 'ui/images/line.png'
-import search from 'ui/images/searc.png'
 
 const items = [
   {
@@ -77,7 +76,7 @@ export const RatingItem: React.FC = () => {
   return (
     <Wrapper>
       {items.map((el) => (
-        <Item>
+        <Item key={el.number}>
           <Res>{el.number}</Res>
           <img src={line} alt='line'/>
           <AvatarIcon />

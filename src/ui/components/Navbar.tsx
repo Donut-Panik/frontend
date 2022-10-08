@@ -113,8 +113,8 @@ export const Navbar: FC = () => {
         <Logo src={logo} alt="vtb" />
       </Button>
       <Container>
-        {tabs.map((el) => (
-          <Element to={el.path} active={location.pathname === el.path}>
+        {tabs.map((el, i) => (
+          <Element to={el.path} active={location.pathname === el.path} key={i}>
             <Text variant="t5">{el.label}</Text>
           </Element>
         ))}

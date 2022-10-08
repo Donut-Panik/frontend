@@ -214,7 +214,7 @@ const _Profile: FC = () => {
             </Text>
           </ProfileWrapper>
           {items.map((el, i) => (
-            <ItemBar isActive={i === panelBarIdx} onClick={() => setPanelBarIdx(i)}>
+            <ItemBar isActive={i === panelBarIdx} onClick={() => setPanelBarIdx(i)} key={i}>
               <StyledIcon name={el.iconName} />
               <Text variant="t4" color={theme.palette.blue}>
                 {el.label}

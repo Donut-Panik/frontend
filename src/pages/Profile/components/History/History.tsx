@@ -49,7 +49,7 @@ export const ProfileHistory: FC = () => {
         <Wrapper>
           <Text variant="h3">История операций</Text>
           {history.map((record, i) => (
-            <Expanded odd={i % 2 !== 0}>{record}</Expanded>
+            <Expanded odd={i % 2 !== 0} key={i}>{record}</Expanded>
           ))}
         </Wrapper>
       )}
