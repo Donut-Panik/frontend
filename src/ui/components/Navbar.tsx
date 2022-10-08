@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { NavLink, useLocation } from 'react-router-dom'
+import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 
 import { styled, theme } from 'ui/styles'
 import { paths } from 'constant/pages'
@@ -7,6 +7,7 @@ import { Text } from './Text'
 
 import logo from 'ui/images/logo2.png'
 import { css } from 'styled-components'
+import { Button } from './Button'
 
 const NavbarContainer = styled.div`
   display: flex;
@@ -75,6 +76,12 @@ const Logo = styled.img`
 
   width: 70px;
   height: 24px;
+
+  transition: transform ${theme.transition.hover}ms;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 `
 
 const tabs = [
@@ -97,11 +104,14 @@ const tabs = [
 ]
 
 export const Navbar: FC = () => {
+  const navigate = useNavigate()
   const location = useLocation()
 
   return (
     <NavbarContainer>
-      <Logo src={logo} alt="vtb" />
+      <Button onClick={() => navigate(paths.home)}>
+        <Logo src={logo} alt="vtb" />
+      </Button>
       <Container>
         {tabs.map((el) => (
           <Element to={el.path} active={location.pathname === el.path}>

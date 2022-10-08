@@ -178,7 +178,7 @@ const items = [
 
 const _Profile: FC = () => {
   const navigate = useNavigate()
-  const { clearAll } = useContext(AuthContext)
+  const { clearAll, user } = useContext(AuthContext)
   const [panelBarIdx, setPanelBarIdx] = useState(0)
 
   const onExitClick = () => {
@@ -202,7 +202,7 @@ const _Profile: FC = () => {
               </SettingsButton>
             </Controls>
             <Name align="center" variant="h9" color={theme.palette.main_text} bold>
-              Баранов Егор
+              {`${user?.name} ${user?.surname}`}
             </Name>
             <Text variant="t4" color={theme.palette.grayDark}>
               Ярославль, отдел IT
@@ -231,12 +231,13 @@ const _Profile: FC = () => {
             <Balance>
               <NFT>
                 <Text variant="t3">NFT отсутствует</Text>
+                <Charge />
               </NFT>
               <Charge>
-                <Text variant="t3">30</Text>
+                <Text variant="t3">{`${user?.maticAmount}`}</Text>
               </Charge>
               <Roubles>
-                <Text variant="t3">1170₽</Text>
+                <Text variant="t3">{`${user?.coinsAmount}`}₽</Text>
               </Roubles>
             </Balance>
           </ProfileInfo>

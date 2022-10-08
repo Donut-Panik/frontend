@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react'
+import { FC, useContext, useEffect, useState } from 'react'
 
 import { Button, Loader, Page } from 'ui/components'
 import { Text } from 'ui/components/Text'
@@ -9,6 +9,7 @@ import { useGetRequest } from 'shared/hooks/useGetRequest'
 
 import { ReactComponent as Sprite } from 'ui/icons/underline_sprite.svg'
 import banner from 'ui/images/banner.png'
+import { AuthContext } from 'shared/context/context'
 
 const Header = styled.div`
   position: relative;
@@ -90,14 +91,13 @@ type Product = {
 
 export const Shop: FC = () => {
   const [products, setProducts] = useState<Product[]>([])
+  const { user } = useContext(AuthContext)
 
   const onLoadProducts = (data: any) => {
-    if (isSuccess) {
-      setProducts(data.items)
-    }
+    setProducts(data.items)
   }
 
-  const { mutate, isLoading, isSuccess } = useGetRequest(onLoadProducts, 'products')
+  const { mutate, isLoading } = useGetRequest(onLoadProducts, 'products')
 
   useEffect(() => {
     mutate({})
@@ -116,10 +116,10 @@ export const Shop: FC = () => {
       <InfoBar>
         <Money>
           <Text variant="h8" inline>
-            Баланс:{' '}
+            {`Баланс: `}
           </Text>
           <Text variant="h8" color={theme.palette.graph_green} inline>
-            1450₽
+            {`${user?.coinsAmount}`}₽
           </Text>
         </Money>
         <Filters>

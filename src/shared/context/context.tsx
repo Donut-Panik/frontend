@@ -19,7 +19,12 @@ type UserT = {
   nickname: string
   maticAmount: number
   coinsAmount: number
-  balance: []
+  balance: [
+    {
+      uri: string
+      tokens: number[]
+    }
+  ]
 }
 
 export const AuthContext = createContext<LogInContextProps>({} as LogInContextProps)

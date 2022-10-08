@@ -7,6 +7,7 @@ import { Profile } from 'pages/Profile'
 import { Education } from 'pages/Education'
 import { Rating } from 'pages/Rating'
 import { Shop } from 'pages/Shop'
+import { ActivityFeed } from 'pages/ActivityFeed'
 
 export const RootRouter: React.FC = (): JSX.Element => {
   const routes = useRoutes([
@@ -24,7 +25,7 @@ export const RootRouter: React.FC = (): JSX.Element => {
     },
     {
       path: paths.challenges,
-      element: <Challenges />
+      element: <ActivityFeed />
     },
     {
       path: paths.profile,

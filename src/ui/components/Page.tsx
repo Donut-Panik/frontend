@@ -4,7 +4,9 @@ import { useLocation } from 'react-router-dom'
 import { breakpoints } from 'shared/dimensions'
 import { paths } from 'constant'
 import { styled, theme } from 'ui/styles'
+
 import { Navbar } from './Navbar'
+import { Image } from './Image'
 
 const Content = styled.main`
   position: relative;
@@ -20,17 +22,29 @@ const Content = styled.main`
   @media (max-width: ${breakpoints.tablet}px) {
     max-width: 100%;
   }
+`
 
-  background-color: ${theme.palette.main};
+const VotLeft = styled(Image)`
+  position: absolute;
+  left: -100px;
+  top: 170px;
+  width: 200px;
+`
+const VotRight = styled(Image)`
+  position: absolute;
+  right: -100px;
+  top: 170px;
+  width: 200px;
 `
 
 export const Page: React.FC<PropsWithChildren> = ({ children }) => {
   const location = useLocation()
   return (
     <>
+      <VotLeft name="vot" />
+      <VotRight name="vot" />
       {location.pathname !== paths.login && <Navbar />}
       <Content>{children}</Content>
-      <div id="footer"></div>
     </>
   )
 }

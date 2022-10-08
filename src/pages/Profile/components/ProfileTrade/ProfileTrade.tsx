@@ -78,7 +78,6 @@ const TradeIcon = styled(Image)``
 
 export const ProfileTrade: FC = () => {
   const [tradeSum, setTradeSum] = useState<number>(0)
-  const [receivedSum, setReceivedSum] = useState<number>(0)
 
   return (
     <Wrapper>
@@ -95,12 +94,7 @@ export const ProfileTrade: FC = () => {
             <Text variant="t8" color={theme.palette.sub_sub_text} bold>
               Сумма обмена
             </Text>
-            <StyledInput
-              value={receivedSum}
-              onChange={(e) => setReceivedSum(Number(e.target.value))}
-              type="number"
-              min={1}
-            />
+            <StyledInput value={tradeSum} onChange={(e) => setTradeSum(Number(e.target.value))} type="number" min={1} />
           </FieldWrapper>
         </FieldsWrapper>
         <OrderWrapper>
@@ -122,7 +116,7 @@ export const ProfileTrade: FC = () => {
                 Мне надо получить
               </Text>
               <Text variant="h9" bold>
-                {`${receivedSum}₽`}
+                {`${tradeSum}₽`}
               </Text>
             </Position>
             <Divider />
