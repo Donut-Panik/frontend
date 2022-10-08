@@ -12,6 +12,8 @@ import { ReactComponent as Sprite } from 'ui/icons/underline_sprite.svg'
 import { ReactComponent as Info } from 'ui/icons/info.svg'
 import { ReactComponent as Marker } from 'ui/icons/marker.svg'
 
+import ellipse from 'ui/images/ellipse.png'
+
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -66,12 +68,28 @@ const Content = styled.div`
 const SwitcherWrapper = styled.div`
   display: flex;
   justify-content: center;
+  z-index: 1;
 `
 const Choose = styled(Text)<{ isActive: boolean }>`
   color: ${({ isActive }) => (isActive ? `${theme.palette.blue}` : `${theme.palette.blueGray}`)};
 `
 
-const Switcher = styled(Marker)<{ isActive: boolean }>``
+const Switcher = styled(Marker)<{ isActive: boolean }>`
+  transform: ${({ isActive }) => (isActive ? 'rotate(0deg)' : 'rotate(120deg)')};
+
+  transition: all ${theme.transition.slide}ms;
+`
+
+const Ellipse = styled.img`
+  position: absolute;
+  bottom: 0px;
+  height: 90px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  z-index: 0;
+`
 
 const _Challenges: FC = () => {
   const [isDaily, setIsDaily] = useState(true)
@@ -100,9 +118,7 @@ const _Challenges: FC = () => {
               </StyledText>
               <InfoIcon onClick={() => isModalOpen(true)} />
               <Modal isVisible={modalOpen} onOverlayClick={() => isModalOpen(false)}>
-                <ModalInfo
-                  isVisible={setModalOpen}
-                />
+                <ModalInfo isVisible={setModalOpen} />
               </Modal>
             </Information>
           </Tasks>
@@ -140,6 +156,7 @@ const _Challenges: FC = () => {
             </Choose>
           </Button>
         </SwitcherWrapper>
+        <Ellipse src={ellipse} />
       </Wrapper>
     </Page>
   )
