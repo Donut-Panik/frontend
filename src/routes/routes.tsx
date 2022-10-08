@@ -4,6 +4,7 @@ import { paths } from 'constant/pages'
 import { Home } from 'pages/Home'
 import { Auth } from 'pages/Auth'
 import { Store } from 'pages/Store/Store'
+import { Challenges } from 'pages/Сhallenges/Challenges'
 
 export const RootRouter: React.FC = (): JSX.Element => {
   const routes = useRoutes([
@@ -18,6 +19,10 @@ export const RootRouter: React.FC = (): JSX.Element => {
     {
       path: paths.store,
       element: <Store />
+    },
+    {
+      path: paths.challenges,
+      element: <Challenges />
     }
   ])
   return <>{routes}</>

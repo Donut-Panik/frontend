@@ -3,12 +3,15 @@ export const theme = {
     white: '#ffffff',
     black: '#000000',
     blue: '#002882',
+    blueGray: '#B6C1DD',
     lightBlue: '#00aaff',
     lightLightBlue: '#78b497',
     green: '#d6e08d',
     red: '#e62632',
     orange: '#ea6b50',
     gray: '#D4D7DF',
+    grayLight: '#F3F7FA',
+    grayDark: '#595D67',
     yellow: '#f1cc56'
   },
   fontFamily: {
@@ -23,9 +26,9 @@ export const theme = {
   typography: {
     // H0 - H9
     h0: {
-      fontSize: '38px',
-      lineHeight: '57px',
-      fontWeight: '800'
+      fontSize: '60px',
+      lineHeight: '70px',
+      fontWeight: '600'
     },
     h1: {
       fontSize: '42px',
@@ -64,13 +67,13 @@ export const theme = {
     },
     h8: {
       fontSize: '24px',
-      lineHeight: '32px',
+      lineHeight: '28px',
       fontWeight: '600'
     },
     h9: {
-      fontSize: '20px',
+      fontSize: '24px',
       lineHeight: '28px',
-      fontWeight: '600'
+      fontWeight: '400'
     },
     // T0 - T8
     t0: {

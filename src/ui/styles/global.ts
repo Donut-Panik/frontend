@@ -28,7 +28,7 @@ export const GlobalStyles = createGlobalStyle`
   body {
     font-family: ${theme.fontFamily.roboto}, sans-serif;
     color: ${theme.palette.black};
-    background-color: ${theme.palette.white};
+    background-color: ${theme.palette.grayLight};
 
     overflow: hidden;
     overflow-y: auto;
