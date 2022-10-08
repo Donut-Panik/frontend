@@ -5,6 +5,8 @@ import { Text } from 'ui/components/Text'
 import { styled, theme } from 'ui/styles'
 
 import { ChallengeCard } from './components/ChallengeCard'
+import { Modal } from 'ui/components/Modal'
+import { ModalInfo } from 'ui/components/ModalInfo'
 
 import { ReactComponent as Sprite } from 'ui/icons/underline_sprite.svg'
 import { ReactComponent as Info } from 'ui/icons/info.svg'
@@ -39,6 +41,7 @@ const StyledHeader = styled(Text)`
 const StyledText = styled(Text)``
 
 const InfoIcon = styled(Info)`
+  cursor: pointer;
   width: 24px;
   height: 24px;
   color: ${theme.palette.blueGray};
@@ -72,9 +75,14 @@ const Switcher = styled(Marker)<{ isActive: boolean }>``
 
 const _Challenges: FC = () => {
   const [isDaily, setIsDaily] = useState(true)
+  const [modalOpen, setModalOpen] = useState(false)
 
   const onSwitcherClick = () => {
     setIsDaily((prev) => !prev)
+  }
+
+  const isModalOpen = (isOpen: boolean) => {
+    setModalOpen(isOpen)
   }
 
   return (
@@ -90,7 +98,12 @@ const _Challenges: FC = () => {
               <StyledText variant="t0" color={theme.palette.blueGray}>
                 До получения NFT осталось 5 дней активной работы
               </StyledText>
-              <InfoIcon />
+              <InfoIcon onClick={() => isModalOpen(true)} />
+              <Modal isVisible={modalOpen} onOverlayClick={() => isModalOpen(false)}>
+                <ModalInfo
+                  isVisible={setModalOpen}
+                />
+              </Modal>
             </Information>
           </Tasks>
         </Header>

@@ -1,12 +1,12 @@
 import { FC } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
-import { css } from 'styled-components'
 
 import { styled, theme } from 'ui/styles'
 import { paths } from 'constant/pages'
 import { Text } from './Text'
 
 import logo from 'ui/images/logo2.png'
+import { css } from 'styled-components'
 
 const NavbarContainer = styled.div`
   display: flex;

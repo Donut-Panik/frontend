@@ -6,11 +6,12 @@ import { styled, theme } from 'ui/styles'
 
 const Wrapper = styled.div`
   position: fixed;
-  width: 100%;
-  height: 100%;
-  padding: 50px 0;
+  /* width: 100%;
+  height: 100%; */
+  //padding: 50px ;
+  margin: 50px;
   top: 0;
-  left: 0;
+  right: 0;
 
   z-index: 9999; // todo
   overflow: auto;
@@ -29,8 +30,8 @@ const Content = styled.div<{ maxWidth: string }>`
   position: relative;
   max-width: ${({ maxWidth }) => maxWidth};
   background-color: white;
-  border-radius: 16px;
-  padding: 32px 32px 40px;
+  border-radius: 24px;
+  padding: 0px 28px 0px 0px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
