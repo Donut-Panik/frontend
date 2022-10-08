@@ -1,7 +1,7 @@
 import under from 'ui/images/under.png'
 import bottom from 'ui/images/bottom.png'
 
-import { styled, theme } from 'ui/styles'
+import { styled } from 'ui/styles'
 
 const Text = styled.span`
   position: absolute;
@@ -34,8 +34,8 @@ const Img = styled.img`
 `
 
 const Column = styled.div`
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 `
 
 export const Support: React.FC = () => {

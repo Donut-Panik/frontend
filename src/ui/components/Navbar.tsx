@@ -52,7 +52,10 @@ const Element = styled(NavLink)<{ active: boolean }>`
 `
 
 const Profile = styled(NavLink)`
+  display: flex;
+  align-items: center;
   width: 120px;
+  height: 56px;
   color: ${theme.palette.white};
   text-decoration: none;
   transition: color 0.2s linear;

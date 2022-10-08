@@ -148,20 +148,20 @@ const _ProfileRating: FC = () => {
       <Footer>
         <Row>
           <Column>
-          {items1.map((el) => (
-            <Info>
-              <InfoText>{el.label}</InfoText>
-              <InfoResult>{el.info}</InfoResult>
-            </Info>
-          ))}
+            {items1.map((el) => (
+              <Info>
+                <InfoText>{el.label}</InfoText>
+                <InfoResult>{el.info}</InfoResult>
+              </Info>
+            ))}
           </Column>
           <Column>
-          {items2.map((el) => (
-            <Info>
-              <InfoText>{el.label}</InfoText>
-              <InfoResultGreen>{el.info}</InfoResultGreen>
-            </Info>
-          ))}
+            {items2.map((el) => (
+              <Info>
+                <InfoText>{el.label}</InfoText>
+                <InfoResultGreen>{el.info}</InfoResultGreen>
+              </Info>
+            ))}
           </Column>
         </Row>
       </Footer>
