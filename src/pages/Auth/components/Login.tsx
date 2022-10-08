@@ -39,7 +39,7 @@ export const Login: FC = () => {
       authContext.setAccessToken(data['access_token'])
     }
 
-    navigate(paths.challenges)
+    navigate(paths.home)
   }
 
   const { sendRequest, isError, isLoading, queryResult } = useSendRequest(submitCallback, 'login')

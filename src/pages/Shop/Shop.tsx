@@ -66,6 +66,7 @@ const Grid = styled.div`
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: auto;
   grid-gap: 1rem;
+  margin-bottom: 32px;
 `
 
 const Filter: FC<{ iconName: string; label: string }> = ({ iconName, label }) => (
@@ -77,19 +78,30 @@ const Filter: FC<{ iconName: string; label: string }> = ({ iconName, label }) =>
   </FilterButton>
 )
 
-type Product = {}
+type Product = {
+  category_id: number
+  category_name: string
+  descriotion: string
+  id: number
+  name: string
+  photo: string
+  price: number
+}
 
 export const Shop: FC = () => {
   const [products, setProducts] = useState<Product[]>([])
 
   const onLoadProducts = (data: any) => {
-    setProducts(data.products)
+    if (isSuccess) {
+      setProducts(data.items)
+    }
   }
 
-  const { mutate, isLoading } = useGetRequest(onLoadProducts, 'products')
+  const { mutate, isLoading, isSuccess } = useGetRequest(onLoadProducts, 'products')
 
   useEffect(() => {
-    // mutate()
+    mutate({})
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
@@ -120,9 +132,15 @@ export const Shop: FC = () => {
         <Loader />
       ) : (
         <Grid>
-          {products.map((product, i) => {
-            return <ChallengeCard key={i} info={''} label="asd" price={20} />
-          })}
+          {products.map((product, i) => (
+            <ChallengeCard
+              key={i}
+              info={product.descriotion}
+              label={product.name}
+              price={product.price}
+              imgLink={product.photo}
+            />
+          ))}
         </Grid>
       )}
     </Page>

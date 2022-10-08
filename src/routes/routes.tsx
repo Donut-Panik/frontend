@@ -1,7 +1,6 @@
 import { useRoutes } from 'react-router'
 
 import { paths } from 'constant/pages'
-import { Home } from 'pages/Home'
 import { Auth } from 'pages/Auth'
 import { Challenges } from 'pages/Сhallenges/Challenges'
 import { Profile } from 'pages/Profile'
@@ -13,7 +12,7 @@ export const RootRouter: React.FC = (): JSX.Element => {
   const routes = useRoutes([
     {
       path: paths.home,
-      element: <Home />
+      element: <Challenges />
     },
     {
       path: paths.login,
