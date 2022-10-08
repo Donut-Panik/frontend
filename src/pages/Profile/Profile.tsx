@@ -4,6 +4,7 @@ import { Button, Page } from 'ui/components'
 import { Image } from 'ui/components/Image'
 import { Text } from 'ui/components/Text'
 import { styled, theme } from 'ui/styles'
+import { ProfileHistory } from './components/History/History'
 
 const Header = styled.div`
   width: 200%;
@@ -68,6 +69,7 @@ const Divider = styled.div`
 `
 
 const ItemBar = styled.div<{ isActive: boolean }>`
+  cursor: pointer;
   display: flex;
   align-items: center;
   height: 64px;
@@ -161,7 +163,7 @@ const items = [
   {
     label: 'История',
     iconName: 'history',
-    component: <div />
+    component: <ProfileHistory />
   }
 ]
 
@@ -222,6 +224,7 @@ const _Profile: FC = () => {
               </Roubles>
             </Balance>
           </ProfileInfo>
+          {items[panelBarIdx].component}
         </Content>
       </Wrapper>
     </Page>
