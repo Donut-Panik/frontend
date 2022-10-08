@@ -1,5 +1,5 @@
 import { paths } from 'constant'
-import { FC, FormEvent, memo, useCallback, useContext, useState } from 'react'
+import { FC, FormEvent, useCallback, useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from 'shared/context/context'
 import { useSendRequest } from 'shared/hooks/useSendRequest'
@@ -22,8 +22,8 @@ const StyledButton = styled(PrimaryButton)`
   margin-top: 32px;
 `
 
-const _Login: FC = () => {
-  const authContext = useContext(AuthContext)
+export const Login: FC = () => {
+  const authContext = useContext(AuthContext)!
 
   const [loginField, setLoginField] = useState('')
   const [passField, setPassField] = useState('')
@@ -32,14 +32,17 @@ const _Login: FC = () => {
   const onLoginChange = useCallback((text: string) => setLoginField(text), [])
   const onPassChange = useCallback((text: string) => setPassField(text), [])
 
-  const submitCallback = () => {
-    if (isSuccess) {
-      authContext?.setIsAuth(true)
-      navigate(paths.challenges)
+  const submitCallback = (data: any) => {
+    authContext.setIsAuth(true)
+
+    if (data) {
+      authContext.setAccessToken(data['access_token'])
     }
+
+    navigate(paths.challenges)
   }
 
-  const { sendRequest, isError, isLoading, queryResult, isSuccess } = useSendRequest(submitCallback, 'login')
+  const { sendRequest, isError, isLoading, queryResult } = useSendRequest(submitCallback, 'login')
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -71,5 +74,3 @@ const _Login: FC = () => {
     </>
   )
 }
-
-export const Login = memo(_Login)

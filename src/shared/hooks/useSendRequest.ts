@@ -6,7 +6,7 @@ import HttpService from 'services/main.services'
 
 export type SendRequestReturnT = ReturnType<typeof useSendRequest>
 
-export const useSendRequest = (cb: () => void, endpoint: string) => {
+export const useSendRequest = (cb: (data?: any) => void, endpoint: string) => {
   const [queryResult, setQueryResult] = React.useState<string | null>(null)
 
   const {
@@ -22,11 +22,10 @@ export const useSendRequest = (cb: () => void, endpoint: string) => {
     },
     {
       onSuccess: (res) => {
-        cb()
         setQueryResult(res!.data)
+        cb(res!.data)
       },
       onError: (err: AxiosError) => {
-        cb()
         setQueryResult(err.message)
       }
     }

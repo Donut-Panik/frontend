@@ -1,4 +1,4 @@
-import { FC, memo, useState } from 'react'
+import { FC, memo, useContext, useState } from 'react'
 
 import { Button, Page } from 'ui/components'
 import { Image } from 'ui/components/Image'
@@ -7,7 +7,12 @@ import { styled, theme } from 'ui/styles'
 import { ProfileHistory } from './components/History/History'
 import { ProfileTrade } from './components/ProfileTrade/ProfileTrade'
 
-const Header = styled.div`
+import header from 'ui/images/header.png'
+import { useNavigate } from 'react-router-dom'
+import { paths } from 'constant'
+import { AuthContext } from 'shared/context/context'
+
+const Header = styled.img`
   width: 200%;
   height: 100px;
   background-color: ${theme.palette.lightBlue};
@@ -169,16 +174,23 @@ const items = [
 ]
 
 const _Profile: FC = () => {
+  const navigate = useNavigate()
+  const { clearAll } = useContext(AuthContext)
   const [panelBarIdx, setPanelBarIdx] = useState(0)
+
+  const onExitClick = () => {
+    clearAll()
+    navigate(paths.login)
+  }
 
   return (
     <Page>
-      <Header></Header>
+      <Header src={header} />
       <Wrapper>
         <Sidebar>
           <ProfileWrapper>
             <Controls>
-              <ExitButton>
+              <ExitButton onClick={onExitClick}>
                 <Image name="exit" width={40} />
               </ExitButton>
               <Avatar />
