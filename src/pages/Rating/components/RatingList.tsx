@@ -1,13 +1,10 @@
-import under from 'ui/images/under.png'
-import bottom from 'ui/images/bottom.png'
-
-import { ReactComponent as Sprite } from 'ui/icons/underline_sprite.svg'
-
-import { styled, theme } from 'ui/styles'
-import triangle from 'ui/images/triangle.png'
+import { styled } from 'ui/styles'
 import { RatingItem } from './RatingItem'
 
+import search from 'ui/images/searc.png'
+
 const Header = styled.div`
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -22,9 +19,11 @@ const Check = styled.span`
     margin: 15px;
 `
 const Img = styled.img`
+    position: absolute;
     font-size: 12px;
 `
 const Input = styled.input`
+    position: relative;
     min-width: 260px;
     height: 50px;
 

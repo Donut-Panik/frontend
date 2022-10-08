@@ -1,7 +1,7 @@
-import { ReactComponent as Sprite } from 'ui/icons/underline_sprite.svg'
-
 import { styled, theme } from 'ui/styles'
-import triangle from 'ui/images/triangle.png'
+
+import line from 'ui/images/line.png'
+import search from 'ui/images/searc.png'
 
 const items = [
   {
@@ -29,13 +29,14 @@ const Res = styled.span`
   font-weight: 600;
   font-size: 60px;
   color: ${theme.palette.graph_green};
+  width: 40px;
 `
 
 const Name = styled.span`
   font-weight: 500;
   font-size: 20px;
   color: #2f3441;
-`
+  `
 const Info = styled.span`
   font-size: 20px;
   font-weight: 300;
@@ -56,6 +57,7 @@ const Exy = styled.span`
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
 `
 const Column = styled.div`
   display: flex;
@@ -64,6 +66,7 @@ const Column = styled.div`
 const AvatarIcon = styled.div`
   left: 0;
   margin-top: 7px;
+  
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -76,12 +79,14 @@ export const RatingItem: React.FC = () => {
       {items.map((el) => (
         <Item>
           <Res>{el.number}</Res>
+          <img src={line} alt='line'/>
           <AvatarIcon />
           <Column>
             <Name>{el.name}</Name>
             <Info>{el.info}</Info>
           </Column>
           <Score>{el.score}</Score>
+          <img src={line} alt='line'/>
           <Column>
           <span>Награда:</span>
           <Exy>{el.rub}</Exy>
