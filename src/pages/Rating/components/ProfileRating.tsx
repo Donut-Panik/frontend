@@ -1,9 +1,6 @@
 import { FC, memo } from 'react'
 
 import { styled, theme } from 'ui/styles'
-import { Image } from 'ui/components/Image'
-
-import avatar from 'ui/images/avatar.png'
 
 const items1 = [
   {
