@@ -4,6 +4,8 @@ import { styled } from 'ui/styles'
 const ResetButton = styled.button`
   border: 0;
   outline: 0;
+  padding: 0;
+  margin: 0;
   background-color: transparent;
   cursor: pointer;
 `

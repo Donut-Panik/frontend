@@ -3,5 +3,7 @@ export const paths = {
   login: '/login',
   challenges: '/challenges',
   store: '/store',
+  education: '/education',
+  rating: '/rating',
   register: '/register'
 }

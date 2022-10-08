@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 
 import { styled, theme } from 'ui/styles'
 
@@ -7,91 +7,101 @@ import { paths } from 'constant/pages'
 
 import logo from 'ui/images/logo2.png'
 import { css } from 'styled-components'
+import { Text } from './Text'
 
 const NavbarContainer = styled.div`
-  position: sticky;
-  width: 100%;
-  height: 50px;
-
   display: flex;
+  position: sticky;
+  height: 54px;
+  width: 100%;
+  align-items: center;
   justify-content: space-around;
   background-color: ${theme.palette.blue};
 `
 const Container = styled.div`
-  margin-top: 18px;
-  margin-bottom: 12px;
-  gap: 50px;
-
   display: flex;
   justify-content: space-between;
-  border-bottom: 3px solid transparent;
+  align-items: center;
+  gap: 50px;
 `
 
 const Element = styled(NavLink)<{ active: boolean }>`
   color: ${theme.palette.white};
+  position: relative;
   font-family: 'Roboto';
   font-size: 15px;
   font-weight: 600;
   text-decoration: none;
   transition: color 0.2s linear;
-  border-bottom: ${({ active }) => (active ? `3px solid ${theme.palette.white}` : '')};
-  :hover {
-    border-bottom: 3px solid ${theme.palette.white};
-  }
+
   ${({ active }) =>
     active &&
     css`
       &::after {
         content: '';
+        position: absolute;
+        width: 64px;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+        text-align: center;
+        border-radius: 4px;
+        border-bottom: 4px solid ${theme.palette.lightBlue};
       }
     `}
 `
 
-const Profil = styled(NavLink)<{ active: boolean }>`
+const Profile = styled(NavLink)`
   width: 120px;
-  margin-top: 18px;
-  margin-bottom: 12px;
   color: ${theme.palette.white};
-  font-family: 'Roboto';
-  font-size: 15px;
-  font-weight: 600;
   text-decoration: none;
   transition: color 0.2s linear;
-  border-bottom: ${({ active }) => (active ? `3px solid ${theme.palette.white}` : '')};
-  :hover {
-    border-bottom: 3px solid ${theme.palette.white};
-  }
 `
 
 const Logo = styled.img`
   margin-top: 5px;
   margin-bottom: 5px;
-  width: 120px;
+
+  width: 70px;
+  height: 24px;
 `
 
+const tabs = [
+  {
+    label: 'Лента активности',
+    path: paths.challenges
+  },
+  {
+    label: 'Магазин',
+    path: paths.store
+  },
+  {
+    label: 'Развитие',
+    path: paths.education
+  },
+  {
+    label: 'Топ-лист',
+    path: paths.rating
+  }
+]
+
 export const Navbar: FC = () => {
-  //const navigate = useNavigate();
+  const location = useLocation()
 
   return (
     <NavbarContainer>
-      <Logo src={logo} alt="vtb" width={120} />
+      <Logo src={logo} alt="vtb" />
       <Container>
-        <Element to={paths.login} active={true}>
-          Лента активности
-        </Element>
-        <Element to={paths.store} active={false}>
-          Mагазин
-        </Element>
-        <Element to={paths.store} active={false}>
-          Развитие
-        </Element>
-        <Element to={paths.store} active={false}>
-          Топ-лист
-        </Element>
+        {tabs.map((el) => (
+          <Element to={el.path} active={location.pathname === el.path}>
+            <Text variant="t5">{el.label}</Text>
+          </Element>
+        ))}
       </Container>
-      <Profil to={paths.login} active={false}>
-        Профиль
-      </Profil>
+      <Profile to={paths.login}>
+        <Text variant="t5">Профиль</Text>
+      </Profile>
     </NavbarContainer>
   )
 }

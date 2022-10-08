@@ -1,22 +1,18 @@
-import { FC, memo } from "react";
+import { FC, memo } from 'react'
 import { styled } from 'ui/styles'
 
-import { Page } from "ui/components";
-import { Navbar } from 'ui/components/Navbar'
+import { Page } from 'ui/components'
 
 const Wrapper = styled.div`
   width: 100%;
-  height: 100vh;
 `
 
 const _Store: FC = () => {
   return (
     <Page>
-      <Wrapper>
-        
-      </Wrapper>
+      <Wrapper></Wrapper>
     </Page>
   )
 }
 
-export const Store = memo(_Store);
+export const Store = memo(_Store)
