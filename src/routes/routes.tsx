@@ -7,6 +7,7 @@ import { Store } from 'pages/Store/Store'
 import { Challenges } from 'pages/Сhallenges/Challenges'
 import { Profile } from 'pages/Profile'
 import { Education } from 'pages/Education'
+import { Rating } from 'pages/Rating'
 
 export const RootRouter: React.FC = (): JSX.Element => {
   const routes = useRoutes([
@@ -33,6 +34,10 @@ export const RootRouter: React.FC = (): JSX.Element => {
     {
       path: paths.profile,
       element: <Profile />
+    },
+    {
+      path: paths.rating,
+      element: <Rating />
     }
   ])
   return <>{routes}</>

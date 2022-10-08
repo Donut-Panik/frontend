@@ -18,7 +18,8 @@ export const theme = {
     main: '#F3F7FA',
     main_text: '#2F3441',
     sub_text: '#595D67',
-    sub_sub_text: '#82858D'
+    sub_sub_text: '#82858D',
+    graph_green: '#78B497'
   },
   fontFamily: {
     roboto: 'Roboto'
