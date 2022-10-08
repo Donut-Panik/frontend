@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom'
 
 import { breakpoints } from 'shared/dimensions'
 import { paths } from 'constant'
-import { styled, theme } from 'ui/styles'
+import { styled } from 'ui/styles'
 
 import { Navbar } from './Navbar'
 import { Image } from './Image'
@@ -29,12 +29,16 @@ const VotLeft = styled(Image)`
   left: -100px;
   top: 170px;
   width: 200px;
+  user-select: none;
+  pointer-events: none;
 `
 const VotRight = styled(Image)`
   position: absolute;
   right: -100px;
   top: 170px;
   width: 200px;
+  user-select: none;
+  pointer-events: none;
 `
 
 export const Page: React.FC<PropsWithChildren> = ({ children }) => {

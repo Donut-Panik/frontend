@@ -231,7 +231,6 @@ const _Profile: FC = () => {
             <Balance>
               <NFT>
                 <Text variant="t3">NFT отсутствует</Text>
-                <Charge />
               </NFT>
               <Charge>
                 <Text variant="t3">{`${user?.maticAmount}`}</Text>
