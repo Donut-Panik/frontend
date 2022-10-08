@@ -94,7 +94,7 @@ type CardProps = {
   label: string
   info: string
   imgLink?: string
-  onPlayClick: () => void
+  onPlayClick?: () => void
 }
 
 const _ChallengeCard: FC<CardProps> = ({ price, label, imgLink, info, onPlayClick }) => {
@@ -116,12 +116,14 @@ const _ChallengeCard: FC<CardProps> = ({ price, label, imgLink, info, onPlayClic
           {info}
         </Text>
       </TextWrapper>
-      <PlayButton onClick={onPlayClick}>
-        <PlayIcon />
-        <PlayText variant="t2" color={theme.palette.lightBlue} bold>
-          Начать!
-        </PlayText>
-      </PlayButton>
+      {onPlayClick && (
+        <PlayButton onClick={onPlayClick}>
+          <PlayIcon />
+          <PlayText variant="t2" color={theme.palette.lightBlue} bold>
+            Начать!
+          </PlayText>
+        </PlayButton>
+      )}
     </Wrapper>
   )
 }

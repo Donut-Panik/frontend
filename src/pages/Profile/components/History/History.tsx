@@ -14,18 +14,20 @@ const Wrapper = styled.div`
 `
 
 const Expanded = styled.div<{ odd: boolean }>`
-  background-color: ${({ odd }) => (odd ? 'white' : 'gray')};
-  height: 21px;
+  background-color: ${({ odd }) => (odd ? 'white' : 'rgba(182, 193, 221, 0.2)')};
+  padding: 20px;
 `
 
 export const ProfileHistory: FC = () => {
-  const [history, setHistory] = useState([])
+  const [history, setHistory] = useState([1, 2, 3, 4])
 
-  const onHistoryLoad = () => {
-    console.log(queryResult)
+  const onHistoryLoad = (data: any) => {
+    if (isSuccess) {
+      setHistory(data.history)
+    }
   }
 
-  const { sendRequest, isLoading, queryResult, isSuccess } = useSendRequest(onHistoryLoad, 'history')
+  const { sendRequest, isLoading, isSuccess } = useSendRequest(onHistoryLoad, 'history')
 
   useEffect(() => {
     const asd = {
@@ -37,6 +39,7 @@ export const ProfileHistory: FC = () => {
 
     sendRequest(asd)
   }, [sendRequest])
+  console.log(history)
 
   return (
     <>
@@ -46,7 +49,7 @@ export const ProfileHistory: FC = () => {
         <Wrapper>
           <Text variant="h3">История операций</Text>
           {history.map((record, i) => (
-            <Expanded odd={i % 2 === 10}>{record}</Expanded>
+            <Expanded odd={i % 2 !== 0}>{record}</Expanded>
           ))}
         </Wrapper>
       )}

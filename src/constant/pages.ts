@@ -6,5 +6,6 @@ export const paths = {
   store: '/store',
   education: '/education',
   rating: '/rating',
+  shop: '/shop',
   profile: '/profile',
 }
