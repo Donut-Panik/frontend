@@ -92,24 +92,26 @@ const Btn = styled.button`
   color: ${theme.palette.white};
   font-weight: 400;
   font-size: 13px;
-
 `
 
 export const ProfileAvatar: FC = () => (
   <>
-  <Wrapper>
-    <Row>
-      <Img src={ava} />
-      <Column>
-        <Name>NFT "Совушка в шапочке"</Name>
-        <Desc>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus
-          magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum
-        </Desc>
-      </Column>
-    </Row>
-    <Element><ElementText>20₽ из 940₽ возможных</ElementText></Element>
-  </Wrapper>
-  <Btn>Продать NFT</Btn>
+    <Wrapper>
+      <Row>
+        <Img src={ava} />
+        <Column>
+          <Name>NFT "Совушка в шапочке"</Name>
+          <Desc>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit
+            amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor
+            purus non enim praesent elementum
+          </Desc>
+        </Column>
+      </Row>
+      <Element>
+        <ElementText>20₽ из 940₽ возможных</ElementText>
+      </Element>
+    </Wrapper>
+    <Btn>Продать NFT</Btn>
   </>
 )

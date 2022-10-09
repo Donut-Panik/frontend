@@ -6,7 +6,11 @@ import HttpService from 'services/main.services'
 
 export type SendRequestReturnT = ReturnType<typeof useSendRequest>
 
-export const useSendRequest = (cb: (data?: any) => void, endpoint: string, formData?: boolean) => {
+export const useSendRequest = (
+  cb: (data?: any) => void,
+  endpoint: string,
+  formData?: boolean
+) => {
   const [queryResult, setQueryResult] = React.useState<string | null>(null)
 
   const {

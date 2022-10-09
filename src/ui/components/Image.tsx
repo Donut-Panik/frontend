@@ -27,7 +27,9 @@ export const Image: ImageT = styled<StyledFunc>(({ name, ...rest }) => {
   return <img src={url} {...rest} alt="" />
 })<Props>`
   display: ${({ inline }) => (inline ? 'inline-block' : 'block')};
-  ${({ width }) => (width && typeof width === 'number' ? `width: ${width}px;` : `width: ${width}`)};
-  ${({ height }) => (height && typeof height === 'number' ? `height: ${height}px;` : `height: ${height}`)};
+  ${({ width }) =>
+    width && typeof width === 'number' ? `width: ${width}px;` : `width: ${width}`};
+  ${({ height }) =>
+    height && typeof height === 'number' ? `height: ${height}px;` : `height: ${height}`};
   object-fit: ${({ fit }) => (fit ? fit : 'fill')};
 `

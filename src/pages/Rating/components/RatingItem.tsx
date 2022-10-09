@@ -35,7 +35,7 @@ const Name = styled.span`
   font-weight: 500;
   font-size: 20px;
   color: #2f3441;
-  `
+`
 const Info = styled.span`
   font-size: 20px;
   font-weight: 300;
@@ -65,7 +65,7 @@ const Column = styled.div`
 const AvatarIcon = styled.div`
   left: 0;
   margin-top: 7px;
-  
+
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -78,19 +78,18 @@ export const RatingItem: React.FC = () => {
       {items.map((el) => (
         <Item key={el.number}>
           <Res>{el.number}</Res>
-          <img src={line} alt='line'/>
+          <img src={line} alt="line" />
           <AvatarIcon />
           <Column>
             <Name>{el.name}</Name>
             <Info>{el.info}</Info>
           </Column>
           <Score>{el.score}</Score>
-          <img src={line} alt='line'/>
+          <img src={line} alt="line" />
           <Column>
-          <span>Награда:</span>
-          <Exy>{el.rub}</Exy>
+            <span>Награда:</span>
+            <Exy>{el.rub}</Exy>
           </Column>
-          
         </Item>
       ))}
     </Wrapper>

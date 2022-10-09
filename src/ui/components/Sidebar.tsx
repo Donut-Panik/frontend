@@ -14,7 +14,6 @@ import active from 'ui/images/active.png'
 import obmen from 'ui/images/obmen.png'
 import history from 'ui/images/historyy.png'
 
-
 // const items = [
 //     {
 //         name: 'Мой аватар',
@@ -65,10 +64,10 @@ const Wrapper = styled.div`
 `
 
 const NavWrapper = styled.div`
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `
 
 export const Sidebar: FC = () => {
@@ -79,26 +78,26 @@ export const Sidebar: FC = () => {
       <InfoSity>Ярославль, отдел IT</InfoSity>
       <InfoCompany>В компании более 1 года</InfoCompany>
       <NavWrapper>
-      <Wrapper>
-        <img src={user} alt="avatarka" />
-        <Btn1>Мой аватар</Btn1>
-      </Wrapper>
-      <Wrapper>
-        <img src={event} alt="event" />
-        <Btn1>Мои задачи</Btn1>
-      </Wrapper>
-      <Wrapper>
-        <img src={active} alt="active" />
-        <Btn1>Активности</Btn1>
-      </Wrapper>
-      <Wrapper>
-        <img src={obmen} alt="obmen" />
-        <Btn1>Обмен валют</Btn1>
-      </Wrapper>
-      <Wrapper>
-        <img src={history} alt="history" />
-        <Btn1>История</Btn1>
-      </Wrapper>
+        <Wrapper>
+          <img src={user} alt="avatarka" />
+          <Btn1>Мой аватар</Btn1>
+        </Wrapper>
+        <Wrapper>
+          <img src={event} alt="event" />
+          <Btn1>Мои задачи</Btn1>
+        </Wrapper>
+        <Wrapper>
+          <img src={active} alt="active" />
+          <Btn1>Активности</Btn1>
+        </Wrapper>
+        <Wrapper>
+          <img src={obmen} alt="obmen" />
+          <Btn1>Обмен валют</Btn1>
+        </Wrapper>
+        <Wrapper>
+          <img src={history} alt="history" />
+          <Btn1>История</Btn1>
+        </Wrapper>
       </NavWrapper>
     </SidebarContainer>
   )

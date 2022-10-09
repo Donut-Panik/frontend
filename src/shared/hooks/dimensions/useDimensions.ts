@@ -23,7 +23,9 @@ const initialValue: IMatchedMedia = {
   isOriginal: false
 }
 export const useDimensions = () => {
-  const [matches, setMatches] = useState(() => queries.map((query) => matchMedia(query).matches))
+  const [matches, setMatches] = useState(() =>
+    queries.map((query) => matchMedia(query).matches)
+  )
 
   useLayoutEffect(() => {
     const mediaQueryLists = queries.map((q) => matchMedia(q))

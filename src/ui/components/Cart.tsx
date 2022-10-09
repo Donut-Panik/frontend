@@ -102,7 +102,12 @@ const PlayText = styled(Text)`
   margin-left: 24px;
 `
 
-export const Cart: React.FC<PropsWithChildren<CartProps>> = ({ mainText, text, price, onPlayClick }) => {
+export const Cart: React.FC<PropsWithChildren<CartProps>> = ({
+  mainText,
+  text,
+  price,
+  onPlayClick
+}) => {
   return (
     <Wrapper>
       <Side />

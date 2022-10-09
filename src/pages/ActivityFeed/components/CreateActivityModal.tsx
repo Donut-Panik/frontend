@@ -92,7 +92,12 @@ export const CreateActivityModal: FC<Props> = ({ isOpen, onOverlayClick }) => {
           <Divider />
           <InputField onChange={setName} value={name} label="Название" />
           <InputField onChange={setDescription} value={description} label="Описание" />
-          <InputField onChange={setDateEnd} value={dateEnd} label="Дата окончания" type="date" />
+          <InputField
+            onChange={setDateEnd}
+            value={dateEnd}
+            label="Дата окончания"
+            type="date"
+          />
           <InputField onChange={setPrice} value={price} label="Награда" />
           <Text variant="t4">
             Тип награды

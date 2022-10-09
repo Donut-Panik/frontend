@@ -59,8 +59,8 @@ export const Obmen: FC<historyTypeProps> = ({
         <Name>Обмен валюты</Name>
         <div>
           <Row>
-          <Info>08.10.2022</Info>
-          <Rub>40 ₽</Rub>
+            <Info>08.10.2022</Info>
+            <Rub>40 ₽</Rub>
           </Row>
         </div>
       </Row>

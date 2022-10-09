@@ -7,5 +7,5 @@ export const paths = {
   education: '/education',
   rating: '/rating',
   shop: '/shop',
-  profile: '/profile',
+  profile: '/profile'
 }

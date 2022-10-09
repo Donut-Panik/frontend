@@ -38,7 +38,13 @@ export const ProfileActivities: React.FC = () => {
   return (
     <Wrapper>
       {items.map((el) => (
-        <Cart mainText={el.mainText} text={el.text} price={el.price} onPlayClick={() => {}} key={el.id} />
+        <Cart
+          mainText={el.mainText}
+          text={el.text}
+          price={el.price}
+          onPlayClick={() => {}}
+          key={el.id}
+        />
       ))}
     </Wrapper>
   )

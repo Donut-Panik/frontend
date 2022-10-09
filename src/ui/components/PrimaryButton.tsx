@@ -24,6 +24,7 @@ export type ButtonProps = {
   onClick?: (ev: React.MouseEvent) => void
 }
 
-export const PrimaryButton: FC<PropsWithChildren<ButtonProps>> = ({ children, ...props }) => (
-  <StyledButton {...props}>{children}</StyledButton>
-)
+export const PrimaryButton: FC<PropsWithChildren<ButtonProps>> = ({
+  children,
+  ...props
+}) => <StyledButton {...props}>{children}</StyledButton>

@@ -28,7 +28,7 @@ export const theme = {
     hover: 200,
     slide: 300,
     blink: 500,
-    spin: 700,
+    spin: 700
   },
   typography: {
     // H0 - H9

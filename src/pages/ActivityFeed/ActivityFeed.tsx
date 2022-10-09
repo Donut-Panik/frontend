@@ -78,7 +78,10 @@ export const ActivityFeed: FC = () => {
         isOpen={modalIdOpened !== null}
         onOverlayClick={() => setModalIdOpened(null)}
       />
-      <CreateActivityModal isOpen={activityModalOpened} onOverlayClick={() => setActivityModalOpened(false)} />
+      <CreateActivityModal
+        isOpen={activityModalOpened}
+        onOverlayClick={() => setActivityModalOpened(false)}
+      />
       <Header>
         <StyledHeader variant="h3" color={theme.palette.blue}>
           Лента активности

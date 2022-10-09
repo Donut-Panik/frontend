@@ -8,17 +8,17 @@ import { styled } from 'ui/styles'
 import { Obmen } from './components/Obmen'
 
 type historyType = {
-  hash: string,
-  blockNumber: number,
-  timeStamp: number,
-  contractAddress: string,
-  from: string,
-  to: string,
-  tokenName: string,
-  tokenSymbol: string,
-  gasUsed: number,
-  confirmations: number,
-  isError?: string,
+  hash: string
+  blockNumber: number
+  timeStamp: number
+  contractAddress: string
+  from: string
+  to: string
+  tokenName: string
+  tokenSymbol: string
+  gasUsed: number
+  confirmations: number
+  isError?: string
   TokenID?: number
 }
 
@@ -42,12 +42,11 @@ export const ProfileHistory: FC = () => {
 
   const { sendRequest, isLoading, isSuccess } = useSendRequest(onHistoryLoad, 'history')
 
-
   useEffect(() => {
     const asd = {
       page: 1,
       offset: 1,
-      sort: 'string',
+      sort: 'string'
       //publicKey: 'string'
     }
 

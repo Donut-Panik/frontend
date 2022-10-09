@@ -89,13 +89,23 @@ export const ProfileTrade: FC = () => {
             <Text variant="t8" color={theme.palette.sub_sub_text} bold>
               Сумма обмена
             </Text>
-            <StyledInput value={tradeSum} onChange={(e) => setTradeSum(Number(e.target.value))} type="number" min={1} />
+            <StyledInput
+              value={tradeSum}
+              onChange={(e) => setTradeSum(Number(e.target.value))}
+              type="number"
+              min={1}
+            />
           </FieldWrapper>
           <FieldWrapper>
             <Text variant="t8" color={theme.palette.sub_sub_text} bold>
               Полученная сумма
             </Text>
-            <StyledInput value={tradeSum} onChange={(e) => setTradeSum(Number(e.target.value))} type="number" min={1} />
+            <StyledInput
+              value={tradeSum}
+              onChange={(e) => setTradeSum(Number(e.target.value))}
+              type="number"
+              min={1}
+            />
           </FieldWrapper>
         </FieldsWrapper>
         <OrderWrapper>

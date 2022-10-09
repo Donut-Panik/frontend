@@ -19,7 +19,11 @@ const Input = styled.input<{ isValid: boolean; isNotEmpty: boolean }>`
   border-radius: 8px;
   border: 1px solid
     ${({ isValid, isNotEmpty }) =>
-      isValid ? (isNotEmpty ? theme.palette.black : theme.palette.black) : theme.palette.black};
+      isValid
+        ? isNotEmpty
+          ? theme.palette.black
+          : theme.palette.black
+        : theme.palette.black};
   width: 100%;
   min-height: 32px;
   padding: 8px 16px 8px 16px;
@@ -70,7 +74,15 @@ type InputProps = {
   onFileChange?: (files: FileList) => void
 }
 
-const _InputField: FC<InputProps> = ({ value, label, isValid, placeholder, onChange, type = 'text', onFileChange }) => {
+const _InputField: FC<InputProps> = ({
+  value,
+  label,
+  isValid,
+  placeholder,
+  onChange,
+  type = 'text',
+  onFileChange
+}) => {
   const isNotEmpty = Boolean(value)
 
   return (
