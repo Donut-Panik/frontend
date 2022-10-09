@@ -76,7 +76,7 @@ export const CreateActivityModal: FC<Props> = ({ isOpen, onOverlayClick }) => {
       price,
       type,
       date_end: dateEnd,
-      upload_files: [image]
+      upload_files: image![0]
     }
 
     sendRequest(formatData)
