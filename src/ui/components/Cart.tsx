@@ -9,7 +9,7 @@ import { ReactComponent as Play } from 'ui/icons/play.svg'
 export type CartProps = {
   mainText?: string
   text?: string
-  price?: string
+  price?: number
   onPlayClick?: () => void
 }
 

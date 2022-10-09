@@ -109,13 +109,13 @@ const _Challenges: FC = () => {
 
   const onLoadProfile = (data: any) => {
     setNewUser(data)
-    console.log(data)
   }
 
   const { mutate, isLoading } = useGetRequest(onLoadProfile, 'whoiam')
 
   useEffect(() => {
     mutate({})
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

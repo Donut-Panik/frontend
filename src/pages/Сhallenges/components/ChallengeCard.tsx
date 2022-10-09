@@ -59,7 +59,7 @@ const Image = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  background-color: grey;
+  background-color: ${theme.palette.off_sub_main};
   border-top-left-radius: 24px;
   border-top-right-radius: 24px;
 `

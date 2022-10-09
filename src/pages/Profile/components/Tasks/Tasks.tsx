@@ -1,4 +1,8 @@
+import { useEffect, useState } from 'react'
+import { useGetRequest } from 'shared/hooks/useGetRequest'
+import { Loader } from 'ui/components'
 import { Cart } from 'ui/components/Cart'
+import { Text } from 'ui/components/Text'
 import { styled } from 'ui/styles'
 
 const Wrapper = styled.div`
@@ -9,32 +13,40 @@ const Wrapper = styled.div`
   gap: 20px;
 `
 
-const items = [
-  {
-    mainText: 'Завершить курс',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum',
-    price: '70 P',
-    id: 1
-  },
-  {
-    mainText: 'Принять участие в игре',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum',
-    price: '20 P',
-    id: 2
-  },
-  {
-    mainText: 'Создать команду в забеге',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum',
-    price: '40 P',
-    id: 3
-  }
-]
+type TaskT = {
+  id: number
+  name: string
+  descriotion: string
+  price: number
+  photo: string
+  type: string
+  nickname: string
+  user_name: string
+  user_surname: string
+  date_end: string
+  condition: string
+}
 
 export const ProfileTasks: React.FC = () => {
-  return (
+  const [tasks, setTasks] = useState<TaskT[]>([])
+
+  const onLoad = (data: any) => {
+    setTasks(data.items)
+  }
+
+  const { mutate, isLoading } = useGetRequest(onLoad, 'myevents')
+
+  useEffect(() => {
+    mutate({})
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+  return isLoading ? (
+    <Loader />
+  ) : (
     <Wrapper>
-      {items.map((el, i) => (
-        <Cart mainText={el.mainText} text={el.text} price={el.price} onPlayClick={() => {}} key={el.id}/>
+      {!tasks.length && <Text variant="t2">Задачи отсутствуют</Text>}
+      {tasks.map((el, i) => (
+        <Cart mainText={el.name} text={el.descriotion} price={el.price} onPlayClick={() => {}} key={el.id} />
       ))}
     </Wrapper>
   )

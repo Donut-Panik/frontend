@@ -6,12 +6,11 @@ import { styled, theme } from 'ui/styles'
 
 const Wrapper = styled.div`
   position: fixed;
-  /* width: 100%;
-  height: 100%; */
-  //padding: 50px ;
-  margin: 50px;
+  width: 100%;
+  height: 100%;
+  padding: 50px 0;
   top: 0;
-  right: 0;
+  left: 0;
 
   z-index: 9999; // todo
   overflow: auto;
@@ -29,6 +28,7 @@ const Wrapper = styled.div`
 const Content = styled.div<{ maxWidth: string }>`
   position: relative;
   max-width: ${({ maxWidth }) => maxWidth};
+  width: 100%;
   background-color: white;
   border-radius: 24px;
   padding: 0px 28px 0px 0px;
@@ -38,6 +38,8 @@ const Content = styled.div<{ maxWidth: string }>`
   opacity: 0;
   transform: scale(0);
   transition: opacity, transform, ${theme.transition.hover}ms ease;
+  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 24px;
 
   &.open {
     opacity: 1;
@@ -59,7 +61,7 @@ type Props = {
 
 export const Modal: React.FC<PropsWithChildren<Props>> = ({
   isVisible,
-  contentMaxWidth = '90%',
+  contentMaxWidth = '60%',
   onOverlayClick,
   children
 }) => {

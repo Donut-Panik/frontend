@@ -1,11 +1,13 @@
 import axios from 'api/http-common'
 
-const post = async <T>(data: T, endpoint: string) => {
-  return await axios.post<T>(`v1/${endpoint}/`, data)
+const post = async <T>(data: T, endpoint: string, formData?: boolean) => {
+  console.log(123);
+
+  return await axios.post<T>(`v1/${endpoint}/`, data, formData ? { headers: { "Content-Type": "multipart/form-data" } } : {})
 }
 
-const get = async (endpoint: string) => {
-  return await axios.get(`v1/${endpoint}/`)
+const get = async (endpoint: string, data?: any,) => {
+  return await axios.get(`v1/${endpoint}/`, data)
 }
 
 const HttpService = {

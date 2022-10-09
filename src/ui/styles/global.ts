@@ -32,10 +32,6 @@ export const GlobalStyles = createGlobalStyle`
 
     overflow: hidden;
     overflow-y: auto;
-
-    &.m-show-modal {
-      overflow-y: hidden;
-    }
   }
 
   #root {
@@ -48,7 +44,8 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .blur {
-    filter: blur(30px);
+    background-color: rgba(0,0,0,0.4);
+    filter: blur(5px);
   }
 
   .overflow-hidden{

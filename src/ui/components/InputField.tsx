@@ -65,18 +65,25 @@ type InputProps = {
   label?: string
   isValid?: boolean
   placeholder?: string
-  type?: 'text' | 'password' | 'phone'
-  onChange: (text: string) => void
+  type?: 'text' | 'password' | 'phone' | 'date' | 'file'
+  onChange?: (text: string) => void
+  onFileChange?: (files: FileList) => void
 }
 
-const _InputField: FC<InputProps> = ({ value, label, isValid, placeholder, onChange, type = 'text' }) => {
+const _InputField: FC<InputProps> = ({ value, label, isValid, placeholder, onChange, type = 'text', onFileChange }) => {
   const isNotEmpty = Boolean(value)
 
   return (
     <Wrapper>
       {label && <StyledText variant="t4">{label}</StyledText>}
       <Input
-        onChange={(e) => onChange(e.target.value)}
+        onChange={(e) => {
+          if (type === 'file' && onFileChange) {
+            onFileChange(e.target.files!)
+          } else {
+            if (onChange) onChange(e.target.value)
+          }
+        }}
         isValid={!!isValid}
         placeholder={placeholder}
         isNotEmpty={isNotEmpty}

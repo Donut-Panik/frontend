@@ -11,15 +11,10 @@ import { ProfileRating } from './components/ProfileRating'
 import { Support } from './components/Support'
 import { RatingList } from './components/RatingList'
 
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+const StyledHeader = styled.div`
   width: 100%;
-  height: 100%;
-`
-const StyledHeader = styled(Text)`
-  height: 100%;
+  position: relative;
+  margin: 20px 0;
 `
 
 const StyledSprite = styled(Sprite)`
@@ -56,33 +51,31 @@ const Row = styled.div`
   justify-content: space-between;
 `
 
-const _Rating: FC = () => {
-  return (
-    <Page>
-      <Wrapper>
-        <StyledHeader variant="h3" color={theme.palette.blue}>
-          Рейтинг
-        </StyledHeader>
-        <StyledSprite />
-        <Tasks>
-          <Row>
-            <Column>
-              <ProfileRating />
+const _Rating: FC = () => (
+  <Page>
+    <StyledHeader>
+      <Text variant="h3" color={theme.palette.blue}>
+        Рейтинг
+      </Text>
+      <StyledSprite />
+    </StyledHeader>
+    <Tasks>
+      <Row>
+        <Column>
+          <ProfileRating />
 
-              <Under>
-                <Image name="sova" width={160} />
-                <Support />
-              </Under>
-            </Column>
+          <Under>
+            <Image name="sova" width={160} />
+            <Support />
+          </Under>
+        </Column>
 
-            <div>
-              <RatingList />
-            </div>
-          </Row>
-        </Tasks>
-      </Wrapper>
-    </Page>
-  )
-}
+        <div>
+          <RatingList />
+        </div>
+      </Row>
+    </Tasks>
+  </Page>
+)
 
 export const Rating = memo(_Rating)

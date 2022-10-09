@@ -15,10 +15,10 @@ export const useGetRequest = (cb: (data?: any) => void, endpoint: string) => {
     isError,
     isSuccess
   } = useMutation<AxiosResponse<any> | undefined, AxiosError, any>(
-    async () => {
+    async <T>(data?: T) => {
       setQueryResult(null)
 
-      return await HttpService.get(endpoint)
+      return await HttpService.get(endpoint, data)
     },
     {
       onSuccess: (res) => {

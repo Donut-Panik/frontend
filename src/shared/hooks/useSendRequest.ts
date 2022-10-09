@@ -6,7 +6,7 @@ import HttpService from 'services/main.services'
 
 export type SendRequestReturnT = ReturnType<typeof useSendRequest>
 
-export const useSendRequest = (cb: (data?: any) => void, endpoint: string) => {
+export const useSendRequest = (cb: (data?: any) => void, endpoint: string, formData?: boolean) => {
   const [queryResult, setQueryResult] = React.useState<string | null>(null)
 
   const {
@@ -18,7 +18,7 @@ export const useSendRequest = (cb: (data?: any) => void, endpoint: string) => {
     async <T>(data: T) => {
       setQueryResult(null)
 
-      return await HttpService.post(data, endpoint)
+      return await HttpService.post(data, endpoint, formData)
     },
     {
       onSuccess: (res) => {
