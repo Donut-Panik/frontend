@@ -19,10 +19,15 @@ const Wrapper = styled.div`
   align-items: center;
   width: 100%;
   height: 200px;
+  box-sizing: border-box;
 
   border-radius: 24px;
   box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);
   background: #ffffff;
+
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
 `
 const Side = styled.img`
   width: 360px;
@@ -72,7 +77,7 @@ const WrapperText = styled.div`
 
 const PlayButton = styled(Button)`
   position: absolute;
-  left: 455px;
+  right: 0;
   height: 52px;
   width: 185px;
   bottom: 0px;

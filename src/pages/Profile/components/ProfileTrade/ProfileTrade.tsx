@@ -12,6 +12,7 @@ const Wrapper = styled.div`
   gap: 20px;
   background-color: white;
   border-radius: 24px;
+  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);
 `
 
 const Content = styled.div`

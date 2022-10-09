@@ -2,11 +2,15 @@ import { Cart } from 'ui/components/Cart'
 import { styled } from 'ui/styles'
 
 const Wrapper = styled.div`
+  padding: 24px;
+  gap: 20px;
+`
+
+const Content = styled.div`
+  margin: 24px;
+
   display: flex;
   flex-direction: column;
-  padding: 24px;
-  margin: 24px;
-  gap: 20px;
 `
 
 const items = [
