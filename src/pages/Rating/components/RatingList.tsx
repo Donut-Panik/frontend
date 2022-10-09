@@ -4,6 +4,7 @@ import { RatingItem } from './RatingItem'
 import search from 'ui/images/searc.png'
 
 const Header = styled.div`
+    position: relative;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -31,8 +32,7 @@ const Input = styled.input`
     border-radius: 12px;
 `
 const Row = styled.div`
-    display: flex;
-    justify-content: space-between;
+    
 `
 
 export const RatingList: React.FC = () => {

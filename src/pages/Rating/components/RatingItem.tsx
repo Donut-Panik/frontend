@@ -54,9 +54,10 @@ const Exy = styled.span`
 `
 
 const Wrapper = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
+  overflow-y: hidden;
 `
 const Column = styled.div`
   display: flex;
@@ -84,7 +85,6 @@ export const RatingItem: React.FC = () => {
             <Name>{el.name}</Name>
             <Info>{el.info}</Info>
           </Column>
-          <Score>{el.score}</Score>
           <img src={line} alt='line'/>
           <Column>
           <span>Награда:</span>

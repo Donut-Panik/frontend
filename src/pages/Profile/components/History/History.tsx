@@ -28,16 +28,13 @@ const Wrapper = styled.div`
   width: 100%;
   background-color: white;
   padding: 20px 20px 0 20px;
-  overflow-y: auto;
 `
 
 export const ProfileHistory: FC = () => {
   const [history, setHistory] = useState<historyType[]>([])
 
   const onHistoryLoad = (data: any) => {
-    if (isSuccess) {
       setHistory(data.history)
-    }
   }
 
   const { sendRequest, isLoading, isSuccess } = useSendRequest(onHistoryLoad, 'history')
@@ -48,7 +45,7 @@ export const ProfileHistory: FC = () => {
       page: 1,
       offset: 1,
       sort: 'string',
-      //publicKey: 'string'
+      publicKey: 'string'
     }
 
     sendRequest(asd)
