@@ -1,8 +1,6 @@
 import { styled } from 'ui/styles'
 import { RatingItem } from './RatingItem'
 
-import search from 'ui/images/searc.png'
-
 const Header = styled.div`
     position: relative;
     width: 100%;
@@ -15,34 +13,34 @@ const Header = styled.div`
 `
 
 const Check = styled.span`
-    font-weight: 600;
-    font-size: 32px;
-    margin: 15px;
+  font-weight: 600;
+  font-size: 32px;
+  margin: 15px;
 `
 const Img = styled.img`
-    position: absolute;
-    font-size: 12px;
+  position: absolute;
+  font-size: 12px;
 `
 const Input = styled.input`
-    position: relative;
-    min-width: 260px;
-    height: 50px;
+  position: relative;
+  min-width: 260px;
+  height: 50px;
 
-    border: 2px solid #B6C1DD;
-    border-radius: 12px;
+  border: 2px solid #b6c1dd;
+  border-radius: 12px;
 `
 const Row = styled.div`
     
 `
 
 export const RatingList: React.FC = () => {
-    return (
-      <Header>
-        <Row>
+  return (
+    <Header>
+      <Row>
         <Check>IT-отдел</Check>
         <Input placeholder="Search" type="search" />
-        </Row>
-        <RatingItem />
-      </Header>
-    )
+      </Row>
+      <RatingItem />
+    </Header>
+  )
 }

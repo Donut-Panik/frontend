@@ -73,7 +73,8 @@ const SwitcherWrapper = styled.div`
   z-index: 1;
 `
 const Choose = styled(Text)<{ isActive: boolean }>`
-  color: ${({ isActive }) => (isActive ? `${theme.palette.blue}` : `${theme.palette.blueGray}`)};
+  color: ${({ isActive }) =>
+    isActive ? `${theme.palette.blue}` : `${theme.palette.blueGray}`};
   transition: color ${theme.transition.blink}ms;
 `
 

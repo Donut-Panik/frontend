@@ -77,7 +77,13 @@ export type ActivityBarProps = {
   onPlayClick?: () => void
 }
 
-export const ActivityBar: FC<ActivityBarProps> = ({ name, descriotion, photo, price, onPlayClick }) => (
+export const ActivityBar: FC<ActivityBarProps> = ({
+  name,
+  descriotion,
+  photo,
+  price,
+  onPlayClick
+}) => (
   <Wrapper>
     <Image src={photo || ''} width="120" height="120" />
     <Content>

@@ -1,1 +1,1 @@
-export { paths } from './pages';
+export { paths } from './pages'

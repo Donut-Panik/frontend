@@ -12,6 +12,7 @@ const Wrapper = styled.div`
   gap: 20px;
   background-color: white;
   border-radius: 24px;
+  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);
 `
 
 const Content = styled.div`
@@ -88,13 +89,23 @@ export const ProfileTrade: FC = () => {
             <Text variant="t8" color={theme.palette.sub_sub_text} bold>
               Сумма обмена
             </Text>
-            <StyledInput value={tradeSum} onChange={(e) => setTradeSum(Number(e.target.value))} type="number" min={1} />
+            <StyledInput
+              value={tradeSum}
+              onChange={(e) => setTradeSum(Number(e.target.value))}
+              type="number"
+              min={1}
+            />
           </FieldWrapper>
           <FieldWrapper>
             <Text variant="t8" color={theme.palette.sub_sub_text} bold>
               Полученная сумма
             </Text>
-            <StyledInput value={tradeSum} onChange={(e) => setTradeSum(Number(e.target.value))} type="number" min={1} />
+            <StyledInput
+              value={tradeSum}
+              onChange={(e) => setTradeSum(Number(e.target.value))}
+              type="number"
+              min={1}
+            />
           </FieldWrapper>
         </FieldsWrapper>
         <OrderWrapper>

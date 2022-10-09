@@ -42,7 +42,10 @@ export const Login: FC = () => {
     navigate(paths.home)
   }
 
-  const { sendRequest, isError, isLoading, queryResult } = useSendRequest(submitCallback, 'login')
+  const { sendRequest, isError, isLoading, queryResult } = useSendRequest(
+    submitCallback,
+    'login'
+  )
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -60,8 +63,18 @@ export const Login: FC = () => {
       ) : (
         <>
           <Form onSubmit={onSubmit}>
-            <InputField onChange={onLoginChange} placeholder="vasya_pupkin" value={loginField} label="Логин" />
-            <InputField onChange={onPassChange} value={passField} label="Пароль" type="password" />
+            <InputField
+              onChange={onLoginChange}
+              placeholder="vasya_pupkin"
+              value={loginField}
+              label="Логин"
+            />
+            <InputField
+              onChange={onPassChange}
+              value={passField}
+              label="Пароль"
+              type="password"
+            />
             <StyledButton type="submit">Войти</StyledButton>
           </Form>
           {isError && (

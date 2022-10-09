@@ -32,7 +32,12 @@ export const Button: React.FC<PropsWithChildren<ButtonProps>> = ({
     )
   } else {
     return (
-      <ResetButton type={type} className={className} onClick={onClick} onMouseDown={(ev) => ev.preventDefault()}>
+      <ResetButton
+        type={type}
+        className={className}
+        onClick={onClick}
+        onMouseDown={(ev) => ev.preventDefault()}
+      >
         {children}
       </ResetButton>
     )

@@ -46,7 +46,13 @@ export const ProfileTasks: React.FC = () => {
     <Wrapper>
       {!tasks.length && <Text variant="t2">Задачи отсутствуют</Text>}
       {tasks.map((el, i) => (
-        <Cart mainText={el.name} text={el.descriotion} price={el.price} onPlayClick={() => {}} key={el.id} />
+        <Cart
+          mainText={el.name}
+          text={el.descriotion}
+          price={el.price}
+          onPlayClick={() => {}}
+          key={el.id}
+        />
       ))}
     </Wrapper>
   )

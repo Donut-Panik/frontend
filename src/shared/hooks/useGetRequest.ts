@@ -9,12 +9,11 @@ export type GetRequestReturnT = ReturnType<typeof useGetRequest>
 export const useGetRequest = (cb: (data?: any) => void, endpoint: string) => {
   const [queryResult, setQueryResult] = React.useState<string | null>(null)
 
-  const {
-    isLoading,
-    mutate,
-    isError,
-    isSuccess
-  } = useMutation<AxiosResponse<any> | undefined, AxiosError, any>(
+  const { isLoading, mutate, isError, isSuccess } = useMutation<
+    AxiosResponse<any> | undefined,
+    AxiosError,
+    any
+  >(
     async <T>(data?: T) => {
       setQueryResult(null)
 

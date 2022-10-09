@@ -11,7 +11,8 @@ export const LoadingCircle = styled.div<{ isSmall?: boolean }>`
 
   border-width: 4px;
   border-style: solid;
-  border-color: ${theme.palette.black} ${theme.palette.black} ${theme.palette.black} transparent;
+  border-color: ${theme.palette.black} ${theme.palette.black} ${theme.palette.black}
+    transparent;
   border-radius: 50%;
 
   animation: ${spinner} ${theme.transition.spin}ms linear infinite;

@@ -37,7 +37,10 @@ const _Register: FC = () => {
     }
   }
 
-  const { sendRequest, isError, isLoading, queryResult, isSuccess } = useSendRequest(submitCallback, 'registration')
+  const { sendRequest, isError, isLoading, queryResult, isSuccess } = useSendRequest(
+    submitCallback,
+    'registration'
+  )
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -58,8 +61,18 @@ const _Register: FC = () => {
       ) : (
         <>
           <Form onSubmit={onSubmit}>
-            <InputField onChange={setNameField} placeholder="Вася" value={nameField} label="Имя" />
-            <InputField onChange={setSurnameField} placeholder="Пупкин" value={surnameField} label="Фамилия" />
+            <InputField
+              onChange={setNameField}
+              placeholder="Вася"
+              value={nameField}
+              label="Имя"
+            />
+            <InputField
+              onChange={setSurnameField}
+              placeholder="Пупкин"
+              value={surnameField}
+              label="Фамилия"
+            />
             <InputField
               onChange={setPhoneField}
               placeholder="+79998887766"
@@ -67,7 +80,12 @@ const _Register: FC = () => {
               label="Номер тел."
               type="phone"
             />
-            <InputField onChange={setNicknameField} placeholder="-=Vasya=-" value={nicknameField} label="Никнейм" />
+            <InputField
+              onChange={setNicknameField}
+              placeholder="-=Vasya=-"
+              value={nicknameField}
+              label="Никнейм"
+            />
             <StyledButton type="submit">
               <Text variant="t6">Начать!</Text>
             </StyledButton>

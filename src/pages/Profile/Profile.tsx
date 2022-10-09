@@ -87,7 +87,10 @@ const ItemBar = styled.div<{ isActive: boolean }>`
   gap: 8px;
   padding: 0 24px;
 
-  background-color: ${({ isActive }) => (isActive ? 'rgba(181, 193, 225, 0.3)' : 'white')};
+  background-color: ${({ isActive }) =>
+    isActive ? 'rgba(181, 193, 225, 0.3)' : 'white'};
+
+  transition: background ${theme.transition.hover}ms;
 
   &:hover {
     background-color: rgba(181, 193, 225, 0.3);
@@ -100,8 +103,6 @@ const StyledIcon = styled(Image)`
 `
 
 const Content = styled.div`
-  display: flex;
-  flex-direction: column;
   width: 100%;
 `
 
@@ -214,7 +215,11 @@ const _Profile: FC = () => {
             </Text>
           </ProfileWrapper>
           {items.map((el, i) => (
-            <ItemBar isActive={i === panelBarIdx} onClick={() => setPanelBarIdx(i)} key={i}>
+            <ItemBar
+              isActive={i === panelBarIdx}
+              onClick={() => setPanelBarIdx(i)}
+              key={i}
+            >
               <StyledIcon name={el.iconName} />
               <Text variant="t4" color={theme.palette.blue}>
                 {el.label}
