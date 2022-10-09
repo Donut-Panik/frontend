@@ -26,7 +26,7 @@ const Tasks = styled.div`
   position: relative;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: flex-start;
   width: 100%;
   height: 100%;
   margin-top: 40px;
@@ -64,7 +64,6 @@ const _Rating: FC = () => (
       <Row>
         <Column>
           <ProfileRating />
-
           <Under>
             <Image name="sova" width={160} />
             <Support />

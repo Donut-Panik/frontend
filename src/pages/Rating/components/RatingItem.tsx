@@ -23,10 +23,11 @@ const Item = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
+  align-items: center;
 `
 const Res = styled.span`
   font-weight: 600;
-  font-size: 40px;
+  font-size: 50px;
   color: ${theme.palette.graph_green};
   width: 40px;
 `
@@ -81,7 +82,7 @@ export const RatingItem: React.FC = () => {
             <Name>{el.name}</Name>
             <Info>{el.info}</Info>
           </Column>
-          <img src={line} alt='line'/>
+          <img src={line} alt="line" />
           <Column>
             <span>Награда:</span>
             <Exy>{el.rub}</Exy>

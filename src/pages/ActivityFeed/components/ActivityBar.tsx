@@ -21,6 +21,8 @@ const Image = styled.img`
   border-bottom-left-radius: 24px;
   border: 0;
   outline: 0;
+  height: 100%;
+  object-fit: cover;
 `
 const Content = styled.div`
   position: relative;
@@ -68,6 +70,9 @@ const PlayIcon = styled(Play)`
 const PlayText = styled(Text)`
   margin-left: 24px;
 `
+const Description = styled(Text)`
+  margin-right: 169px;
+`
 
 export type ActivityBarProps = {
   id: number
@@ -87,15 +92,15 @@ export const ActivityBar: FC<ActivityBarProps> = ({
   onPlayClick
 }) => (
   <Wrapper>
-    <Image src={photo || ''} width="120" height="120" />
+    <Image src={photo || ''} width="150" height="150" />
     <Content>
       <PriceWrapper>
         <Text variant="h8">{`${price.toString()}₽`}</Text>
       </PriceWrapper>
       <Text variant="h8">{name}</Text>
-      <Text variant="t4" color={theme.palette.grayDark}>
+      <Description variant="t4" color={theme.palette.grayDark}>
         {descriotion}
-      </Text>
+      </Description>
       {onPlayClick && (
         <PlayButton onClick={onPlayClick}>
           <PlayIcon />
