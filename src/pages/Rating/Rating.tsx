@@ -27,6 +27,7 @@ const Tasks = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  width: 100%;
   height: 100%;
   margin-top: 40px;
 

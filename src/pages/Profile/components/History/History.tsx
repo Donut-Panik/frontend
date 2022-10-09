@@ -28,6 +28,13 @@ const Wrapper = styled.div`
   width: 100%;
   background-color: white;
   padding: 20px 20px 0 20px;
+  margin: 30px;
+
+  background: #FFFFFF;
+  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 24px;
+
+  overflow-y: hidden;
 `
 
 export const ProfileHistory: FC = () => {
@@ -42,7 +49,7 @@ export const ProfileHistory: FC = () => {
   useEffect(() => {
     const asd = {
       page: 1,
-      offset: 1,
+      offset: 2,
       sort: 'string',
       publicKey: 'string'
     }

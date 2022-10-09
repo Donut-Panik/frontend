@@ -26,7 +26,7 @@ const Item = styled.div`
 `
 const Res = styled.span`
   font-weight: 600;
-  font-size: 60px;
+  font-size: 40px;
   color: ${theme.palette.graph_green};
   width: 40px;
 `
@@ -42,11 +42,6 @@ const Info = styled.span`
   color: #595d67;
 `
 
-const Score = styled.span`
-  font-weight: 500;
-  font-size: 32px;
-  color: ${theme.palette.graph_green};
-`
 const Exy = styled.span`
   font-weight: 500;
   font-size: 20px;
@@ -58,6 +53,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   overflow-y: hidden;
+  margin-top: 20px;
 `
 const Column = styled.div`
   display: flex;

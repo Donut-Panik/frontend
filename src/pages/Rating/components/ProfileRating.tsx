@@ -84,13 +84,13 @@ const InfoText = styled.span`
 const InfoResult = styled.span`
   color: ${theme.palette.blue};
   font-weight: 600;
-  font-size: 60px;
+  font-size: 50px;
 `
 
 const InfoResultGreen = styled.span`
   color: ${theme.palette.graph_green};
   font-weight: 600;
-  font-size: 60px;
+  font-size: 50px;
 `
 
 const Info = styled.div`

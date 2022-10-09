@@ -17,10 +17,7 @@ const Check = styled.span`
   font-size: 32px;
   margin: 15px;
 `
-const Img = styled.img`
-  position: absolute;
-  font-size: 12px;
-`
+
 const Input = styled.input`
   position: relative;
   min-width: 260px;
