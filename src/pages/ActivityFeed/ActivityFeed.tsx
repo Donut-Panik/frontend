@@ -74,6 +74,7 @@ export const ActivityFeed: FC = () => {
         <CreateActivity name="pencil" />
       </Button>
       <ActivityModal
+        id={feeds.length ? feeds[modalIdOpened || 0].id : 0}
         label={feeds.length ? feeds[modalIdOpened || 0].name : ''}
         isOpen={modalIdOpened !== null}
         onOverlayClick={() => setModalIdOpened(null)}
@@ -95,6 +96,7 @@ export const ActivityFeed: FC = () => {
         feeds.map((el, i) => (
           <ActivityBar
             key={i}
+            id={el.id}
             name={el.name}
             descriotion={el.descriotion}
             photo={el.photo}

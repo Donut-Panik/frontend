@@ -70,6 +70,7 @@ const PlayText = styled(Text)`
 `
 
 export type ActivityBarProps = {
+  id: number
   name: string
   descriotion: string
   photo: string
@@ -78,6 +79,7 @@ export type ActivityBarProps = {
 }
 
 export const ActivityBar: FC<ActivityBarProps> = ({
+  id,
   name,
   descriotion,
   photo,

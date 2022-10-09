@@ -1,10 +1,12 @@
 import { FC } from 'react'
 
-import { Modal } from 'ui/components'
+import { Button, Modal } from 'ui/components'
 import { styled, theme } from 'ui/styles'
+import { Text } from 'ui/components/Text'
 
 import feed_event from 'ui/images/feed_event.png'
-import { Text } from 'ui/components/Text'
+import { ReactComponent as Play } from 'ui/icons/play.svg'
+import { useSendRequest } from 'shared/hooks/useSendRequest'
 
 const Wrapper = styled.div`
   display: flex;
@@ -32,13 +34,47 @@ const Divider = styled.div`
   background-color: ${theme.palette.blue};
 `
 
+const AcceptButton = styled(Button)`
+  position: absolute;
+  height: 52px;
+  width: 185px;
+  right: 0;
+  bottom: 0;
+  border-radius: 64px;
+  border: 1px solid ${theme.palette.gray};
+  background-color: white;
+  transition: transform ${theme.transition.hover}ms;
+
+  &:hover {
+    background-color: ${theme.palette.grayLight};
+    transform: translateY(-5px);
+  }
+`
+
+const PlayIcon = styled(Play)`
+  position: absolute;
+  left: 0;
+  top: 0;
+`
+
+const PlayText = styled(Text)`
+  margin-left: 24px;
+`
+
 type Props = {
+  id: number
   label: string
   isOpen: boolean
   onOverlayClick: () => void
 }
 
-export const ActivityModal: FC<Props> = ({ label, isOpen, onOverlayClick }) => {
+export const ActivityModal: FC<Props> = ({ id, label, isOpen, onOverlayClick }) => {
+  const onAcceptClick = () => {
+    sendRequest({})
+  }
+
+  const { sendRequest } = useSendRequest(onOverlayClick, `accept/${id}`)
+
   return (
     <Modal isVisible={isOpen} onOverlayClick={onOverlayClick}>
       <Wrapper>
@@ -67,6 +103,12 @@ export const ActivityModal: FC<Props> = ({ label, isOpen, onOverlayClick }) => {
               Активно до:
             </Text>
           </Information>
+          <AcceptButton onClick={onAcceptClick}>
+            <PlayIcon />
+            <PlayText variant="t2" color={theme.palette.lightBlue} bold>
+              Начать!
+            </PlayText>
+          </AcceptButton>
         </Content>
       </Wrapper>
     </Modal>
