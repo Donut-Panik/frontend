@@ -90,6 +90,8 @@ const ItemBar = styled.div<{ isActive: boolean }>`
   background-color: ${({ isActive }) =>
     isActive ? 'rgba(181, 193, 225, 0.3)' : 'white'};
 
+  transition: background ${theme.transition.hover}ms;
+
   &:hover {
     background-color: rgba(181, 193, 225, 0.3);
   }

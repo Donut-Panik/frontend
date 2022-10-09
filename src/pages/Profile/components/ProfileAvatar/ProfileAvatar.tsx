@@ -1,7 +1,6 @@
 import { FC } from 'react'
-import { Image } from 'ui/components/Image'
-import { Text } from 'ui/components/Text'
 
+import { Text } from 'ui/components/Text'
 import { styled, theme } from 'ui/styles'
 
 import ava from 'ui/images/DreamCard.png'
@@ -13,9 +12,7 @@ const Wrapper = styled.div`
   width: 100%;
   height: 450px;
   align-items: center;
-  justify-content: center;
   margin: 30px;
-
   border: 1px solid #b6c1dd;
   box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);
   border-radius: 24px;
@@ -23,21 +20,14 @@ const Wrapper = styled.div`
 `
 
 const Img = styled.img`
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 250px;
   height: 450px;
 `
-const Name = styled.p`
-  font-weight: 600;
-  font-size: 32px;
+const Name = styled(Text)`
   color: ${theme.palette.main_text};
 `
 
-const Desc = styled.p`
-  font-weight: 400;
-  font-size: 24px;
+const Desc = styled(Text)`
   color: ${theme.palette.sub_text};
   padding-top: 20px;
 `
@@ -45,22 +35,17 @@ const Desc = styled.p`
 const Row = styled.div`
   display: flex;
   justify-content: space-between;
+  gap: 23px;
 `
 
 const Column = styled.div`
-  position: absolute;
-  top: 0;
   margin: 30px 90px 0px 0px;
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 `
 
 const Element = styled.div`
-  position: absolute;
-  bottom: 0;
-  right: 0;
   width: 255px;
   height: 60px;
 
@@ -70,18 +55,12 @@ const Element = styled.div`
 const ElementText = styled.p`
   position: absolute;
   margin: 20px 30px;
-
-  font-weight: 600;
-  font-size: 16px;
   color: ${theme.palette.white};
 `
 
 const Btn = styled.button`
-  position: absolute;
-  bottom: 0;
-  right: 0;
   margin-top: 20px;
-
+  cursor: pointer;
   width: 100px;
   height: 40px;
 
@@ -92,6 +71,10 @@ const Btn = styled.button`
   color: ${theme.palette.white};
   font-weight: 400;
   font-size: 13px;
+
+  &:hover {
+    background-color: ${theme.palette.blue};
+  }
 `
 
 export const ProfileAvatar: FC = () => (
@@ -100,18 +83,18 @@ export const ProfileAvatar: FC = () => (
       <Row>
         <Img src={ava} />
         <Column>
-          <Name>NFT "Совушка в шапочке"</Name>
-          <Desc>
+          <Name variant="h8">NFT "Совушка в шапочке"</Name>
+          <Desc variant="t4">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit
             amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor
             purus non enim praesent elementum
           </Desc>
+          <Btn>Продать NFT</Btn>
         </Column>
       </Row>
       <Element>
         <ElementText>20₽ из 940₽ возможных</ElementText>
       </Element>
     </Wrapper>
-    <Btn>Продать NFT</Btn>
   </>
 )
